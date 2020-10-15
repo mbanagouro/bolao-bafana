@@ -1,0 +1,705 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>Jogos - Bolão Bafana</title>
+
+	<link rel="stylesheet" type="text/css" media="screen" href="Css/global.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="Css/pages.css" />
+
+	<script type="text/javascript" src="Js/jquery-1.6.1.min.js"></script>
+	<script type="text/javascript" src="Js/modernizr-1.7.min"></script>
+
+	<!--[if lt IE 9]>
+	<script type="text/javascript" src="http://ie7-js.googlecode.com/svn/version/2.1(beta4)/IE9.js"></script>
+	<![endif]-->
+
+	<!--[if lte IE 9]>
+		<script type="text/javascript" src="Js/ie6.warning.js"></script>
+		<script type="text/javascript">
+			jQuery(function(){
+				e('Imagens/browser/');
+				$('div#_l').click(function() { $(this).remove(); $('div#_d').remove(); });
+			})
+		</script>
+	<![endif]-->
+</head>
+
+<body>
+	<div id="wrapper">
+		
+		<!-- Header -->
+		<div id="header">
+			<div class="w960">
+				<a href="#" title="Home" class="logo">Bolão Bafana</a>
+				
+				<ul class="menuHeader">
+					<li><a href="index.html" title="Jogos">Jogos</a></li>
+					<li><a href="ranking.html" title="Ranking">Ranking</a></li>
+					<li><a href="sobre.html" title="Sobre">Sobre</a></li>
+					<li><a href="contato.html" title="Contato">Contato</a></li>
+				</ul>
+			</div>
+		</div>	
+		<!-- Header -->
+		
+		<!-- Content -->
+		<div id="content">
+			<div class="top"></div>
+			
+			<div class="w960 center">
+				
+				<ul class="userInfo round">
+					<li class="nome">E ai Fulano, blz?</li>
+					<li class="pontuacao">Você tem 235 pontos e está na 14ª posição.</li>
+					
+					<span class="control">
+						<li class="control">
+							<a href="#" class="mudarSenha">Mudar senha</a>						
+							<div class="mudarSenha round">
+								<ul>
+									<form>
+										<li>
+											<label>Senha atual</label>
+											<input type="password" class="password round" />
+										</li>
+										
+										<li>
+											<label>Nova atual</label>
+											<input type="password" class="password round" />
+										</li>
+										
+										<li>
+											<label>Confirme nova senha</label>
+											<input type="password" class="password round" />
+										</li>
+										
+										<li class="controle">
+											<input type="submit" value="Trocar senha" class="trocar" />
+											<input type="reset" value="Cancelar" class="cancelar" />
+										</li>
+										
+										<li class="msgRetorno">
+											<span>Trocando senha</span>
+										</li>
+									</form>
+								</ul>
+							</div>
+						</li>
+						<li class="control"><a href="#">Sair</a></li>
+					</span>
+				</ul>
+				
+				<div class="colL">
+					<h1 class="heading">Jogos</h1>
+					
+					<div class="Fase">
+						<div class="cabeca round palpiteCampeao">
+							<h2>Palpite Campeão</h2>
+							<span class="control">
+								<a class="expandirRecolher" href="#">
+									<div class="expandir">
+										<span class="ico"></span>
+										Mostrar apostas
+									</div>
+									
+									<div class="recolher">
+										<span class="ico"></span>
+										Recolher apostas
+									</div>
+								</a>
+							</span>
+
+							<ul class="apostas stripesP">
+								<form>
+									<li class="bilhete">
+										<ul class="grupos">
+											<li class="bilheteId">
+												
+											</li>
+		
+											<li class="dropdown">
+												<label>Campeão</label>
+												<select>
+													<option>Brasil</option>
+												</select>
+											</li>
+		
+											<li class="dropdown">
+												<label>Vice</label>
+												<select>
+													<option>Brasil</option>
+												</select>
+											</li>
+		
+											<li class="dropdown">
+												<label>3º colocado</label>
+												<select>
+													<option>Brasil</option>
+												</select>
+											</li>
+		
+											<li class="dropdown">
+												<label>4º colocado</label>
+												<select>
+													<option>Brasil</option>
+												</select>
+											</li>
+										</ul>
+									</li>
+									
+									<li class="apostaControl">
+										<span class="botao">
+											<input type="submit" value="Salvar" class="salvarApostas round" title="Salvar" />
+										</span>
+										
+										<span class="info">
+											Você poderá alterar seus palpites enquanto o primeiro jogo das Oitavas estiver aberto
+										</span>											
+									</li>
+								</form>
+							</ul>
+						</div>
+					</div>
+					
+					<div class="Fase mata-mata">
+						<div class="cabeca round">
+							<h2>Oitavas de final</h2>
+							<span class="control">
+								<a class="expandirRecolher" href="#">
+									<div class="expandir">
+										<span class="ico"></span>
+										Expandir todos os dias
+									</div>
+									
+									<div class="recolher">
+										<span class="ico"></span>
+										Recolher todos os dias
+									</div>
+								</a>
+							</span>
+						</div>
+						
+						<ul class="tabela">						
+							<li class="dia">
+								<a href="#" class="cabecaDia round">Sexta-feira, 11/6</a>
+								
+								<div class="jogosDia">								
+									<ul class="jogo finalizado round">
+										<div class="cabecaJogo round">
+											<ul>
+												<li class="horario">11:30</li>
+												
+												<li class="equipes">
+													<span class="aR">
+														Brasil
+														<img class="bandeira" src="Imagens/Bandeiras/brazil.png" alt="" width="24px" height="24px"/>
+													</span>
+													
+													<span class="x">X</span>
+													
+													<span class="aL">
+														<img class="bandeira" src="Imagens/Bandeiras/argentina.png" alt="" width="24px" height="24px"/>
+														Argentina												
+													</span>
+												</li>
+												
+												<li class="status">72:00:00</li>
+											</ul>
+										</div>
+										
+										<li class="apostas">
+											<form>
+												<ul class="stripes">
+													<li class="bilhete">
+														
+														<span class="campos">
+															<span class="penaltis">
+																<label for="cb_esq">Leva nos pênaltis</label>
+																<input type="radio" id="cb_esq" name="vencedor" />
+															</span>
+															<input type="text" class="numerico" readonly="readonly" maxlength="2" />
+															X
+															<input type="text" class="numerico" readonly="readonly" maxlength="2" />
+															<span class="penaltis">
+																<input type="radio" id="cb_dir" name="vencedor" />
+																<label for="cb_dir">Leva nos pênaltis</label>
+															</span>
+														</span>
+														<span class="pontuacao">25 pontos <span>de 30 possíveis</span></span>
+													</li>
+													
+													<li class="apostaControl">
+														<span class="botao">
+															<input type="submit" value="Salvar" class="salvarApostas round" title="Salvar" />
+														</span>
+														
+														<span class="info">
+															Você poderá alterar seus palpites quantas vezes quiser enquanto o jogo estiver aberto
+														</span>											
+													</li>
+												</ul>
+											</form>
+										</li>								
+									</ul>
+									
+									<ul class="jogo aberto round">
+										<div class="cabecaJogo round">
+											<ul>
+												<li class="horario">11:30</li>
+												
+												<li class="equipes">
+													<span class="aR">
+														Brasil
+														<img class="bandeira" src="Imagens/Bandeiras/brazil.png" alt="" width="24px" height="24px"/>
+													</span>
+													
+													<span class="x">X</span>
+													
+													<span class="aL">
+														<img class="bandeira" src="Imagens/Bandeiras/argentina.png" alt="" width="24px" height="24px"/>
+														Argentina
+													</span>
+												</li>
+												
+												<li class="status">24:00:00</li>
+											</ul>
+										</div>
+										
+										<li class="apostas">
+											<form>
+												<ul class="stripes">
+													<li class="bilhete">
+														
+														<span class="campos">
+															<span class="penaltis">
+																<label for="cb_esq">Leva nos pênaltis</label>
+																<input type="radio" id="cb_esq" name="vencedor" />
+															</span>
+															<input type="text" class="numerico" readonly="readonly" maxlength="2" />
+															X
+															<input type="text" class="numerico" readonly="readonly" maxlength="2" />
+															<span class="penaltis">
+																<input type="radio" id="cb_dir" name="vencedor" />
+																<label for="cb_dir">Leva nos pênaltis</label>
+															</span>
+														</span>
+														<span class="pontuacao">25 pontos <span>de 30 possíveis</span></span>
+													</li>
+													
+													<li class="apostaControl">
+														<span class="botao">
+															<input type="submit" value="Salvar" class="salvarApostas round" title="Salvar" />
+														</span>
+														
+														<span class="info">
+															Você poderá alterar seus palpites quantas vezes quiser enquanto o jogo estiver aberto
+														</span>											
+													</li>
+												</ul>
+											</form>
+										</li>								
+									</ul>
+								</div>
+							</li>										
+						</ul>
+					</div>
+					
+					<div class="Fase">
+						<div class="cabeca round">
+							<h2>Primeira fase</h2>
+							<span class="control">
+								<a class="expandirRecolher" href="#">
+									<div class="expandir">
+										<span class="ico"></span>
+										Expandir todos os dias
+									</div>
+									
+									<div class="recolher">
+										<span class="ico"></span>
+										Recolher todos os dias
+									</div>
+								</a>
+							</span>
+						</div>
+						
+						<ul class="tabela">					
+							<li class="dia">
+								<a href="#" class="cabecaDia round passado">Sexta-feira, 11/6</a>
+								
+								<div class="jogosDia">
+									<ul class="jogo finalizado round">
+										<div class="cabecaJogo round">
+											<ul>
+												<li class="horario">11:30</li>
+												
+												<li class="equipes">
+													<span class="aR">
+														Uruguai
+														<img class="bandeira" src="Imagens/Bandeiras/uruguay.png" alt="" width="24px" height="24px"/>
+														2
+													</span>
+													
+													<span class="x">X</span>
+													
+													<span class="aL">
+														2
+														<img class="bandeira" src="Imagens/Bandeiras/paraguay.png" alt="" width="24px" height="24px"/>
+														Paraguai
+													</span>
+												</li>
+												
+												<li class="status"><span class="info">Jogo</span> <span class="destaque">Encerrado</span></li>
+											</ul>
+										</div>
+										
+										<li class="apostas">
+											<form>
+												<ul class="stripes">
+													<li class="bilhete">
+														
+														<span class="campos">
+															<input type="text" class="numerico" readonly="readonly" maxlength="2" value="2" />
+															X
+															<input type="text" class="numerico" readonly="readonly" maxlength="2" value="2" />
+														</span>
+														<span class="pontuacao">10 pontos <span>de 10 possíveis</span></span>
+													</li>
+													
+													<li class="apostaControl">
+														<span class="botao">
+															<input type="submit" value="Salvar" class="salvarApostas round" title="Salvar" />
+														</span>
+														
+														<span class="info">
+															Você poderá alterar seus palpites quantas vezes quiser enquanto o jogo estiver aberto
+														</span>											
+													</li>
+												</ul>
+											</form>
+										</li>								
+									</ul>
+									
+									<ul class="jogo finalizado round">
+										<div class="cabecaJogo round">
+											<ul>
+												<li class="horario">11:30</li>
+												
+												<li class="equipes">
+													<span class="aR">
+														Uruguai
+														<img class="bandeira" src="Imagens/Bandeiras/paraguay.png" alt="" width="24px" height="24px"/>
+														3
+													</span>
+													
+													<span class="x">X</span>
+													
+													<span class="aL">
+														1
+														<img class="bandeira" src="Imagens/Bandeiras/mexico.png" alt="" width="24px" height="24px"/>
+														México												
+													</span>
+												</li>
+												
+												<li class="status"><span class="info">Jogo</span> <span class="destaque">Encerrado</span></li>
+											</ul>
+										</div>
+										
+										<li class="apostas">
+											<form>
+												<ul class="stripes">
+													<li class="bilhete">
+														
+														<span class="campos">
+															<input type="text" class="numerico" readonly="readonly" maxlength="2" value="1" />
+															X
+															<input type="text" class="numerico" readonly="readonly" maxlength="2" value="0" />
+														</span>
+														<span class="pontuacao">3 pontos <span>de 10 possíveis</span></span>
+													</li>
+													
+													<li class="apostaControl">
+														<a href="#">
+															<span class="ico">?</span> O que é?
+														</a>
+														
+														<a href="#">
+															<span class="ico">$</span> Comprar bilhetes
+														</a>
+														
+														<span class="botao">
+															<input type="submit" value="Salvar" class="salvarApostas round" title="Salvar" />
+														</span>
+														
+														<span class="info">
+															Você poderá alterar seus palpites quantas vezes quiser enquanto o jogo estiver aberto
+														</span>											
+													</li>
+												</ul>
+											</form>
+										</li>								
+									</ul>
+									
+									<ul class="jogo finalizado round">
+										<div class="cabecaJogo round">
+											<ul>
+												<li class="horario">11:30</li>
+												
+												<li class="equipes">
+													<span class="aR">
+														Uruguai
+														<img class="bandeira" src="Imagens/Bandeiras/uruguay.png" alt="" width="24px" height="24px"/>
+														1
+													</span>
+													
+													<span class="x">X</span>
+													
+													<span class="aL">								
+														2
+														<img class="bandeira" src="Imagens/Bandeiras/mexico.png" alt="" width="24px" height="24px"/>
+														México												
+													</span>
+												</li>
+												
+												<li class="status"><span class="info">Jogo</span><span class="destaque">Encerrado</span></li>
+											</ul>
+										</div>
+										
+										<li class="apostas">
+											<form>
+												<ul class="stripes">
+													<li class="bilhete">
+														
+														<span class="campos">
+															<input type="text" class="numerico" readonly="readonly" maxlength="2" value="2" />
+															X
+															<input type="text" class="numerico" readonly="readonly" maxlength="2" value="0" />
+														</span>
+														<span class="pontuacao">0 pontos <span>de 10 possíveis</span></span>
+													</li>
+													
+													<li class="apostaControl">												
+														<span class="botao">
+															<input type="submit" value="Salvar" class="salvarApostas round" title="Salvar" />
+														</span>
+														
+														<span class="info">
+															Você poderá alterar seus palpites quantas vezes quiser enquanto o jogo estiver aberto
+														</span>											
+													</li>
+												</ul>
+											</form>
+										</li>
+									</ul>
+								</div>
+							</li>
+							
+							<li class="dia">
+								<a href="#" class="cabecaDia round">Sexta-feira, 11/6</a>
+								
+								<div class="jogosDia">
+									<ul class="jogo encerrado round">
+										<div class="cabecaJogo round">
+											<ul>
+												<li class="horario">11:30</li>
+												
+												<li class="equipes">
+													<span class="aR">
+														Uruguai
+														<img class="bandeira" src="Imagens/Bandeiras/uruguay.png" alt="" width="24px" height="24px"/>
+													</span>
+													
+													<span class="x">X</span>
+													
+													<span class="aL">
+														<img class="bandeira" src="Imagens/Bandeiras/mexico.png" alt="" width="24px" height="24px"/>
+														México												
+													</span>
+												</li>
+												
+												<li class="status"><span class="info">Apostas</span><span class="destaque">Encerradas</span></li>
+											</ul>
+										</div>
+										
+										<li class="apostas">
+											<form>
+												<ul class="stripes">
+													<li class="bilhete">
+														
+														<span class="campos">
+															<input type="text" class="numerico" readonly="readonly" maxlength="2" value="3" />
+															X
+															<input type="text" class="numerico" readonly="readonly" maxlength="2" value="2" />
+														</span>
+														<span class="pontuacao">25 pontos <span>de 30 possíveis</span></span>
+													</li>
+													
+													<li class="apostaControl">
+														<span class="botao">
+															<input type="submit" value="Salvar" class="salvarApostas round" title="Salvar" />
+														</span>
+														
+														<span class="info">
+															Você poderá alterar seus palpites quantas vezes quiser enquanto o jogo estiver aberto
+														</span>											
+													</li>
+												</ul>
+											</form>
+										</li>								
+									</ul>
+									
+									<ul class="jogo aberto round">
+										<div class="cabecaJogo round">
+											<ul>
+												<li class="horario">11:30</li>
+												
+												<li class="equipes">
+													<span class="aR">
+														Uruguai
+														<img class="bandeira" src="Imagens/Bandeiras/uruguay.png" alt="" width="24px" height="24px"/>
+													</span>
+													
+													<span class="x">X</span>
+													
+													<span class="aL">
+														<img class="bandeira" src="Imagens/Bandeiras/mexico.png" alt="" width="24px" height="24px"/>
+														México												
+													</span>
+												</li>
+												
+												<li class="status">36:40:00</li>
+											</ul>
+										</div>
+										
+										<li class="apostas">
+											<form>
+												<ul class="stripes">
+													<li class="bilhete">
+														
+														<span class="campos">
+															<input type="text" class="numerico" readonly="readonly" maxlength="2" />
+															X
+															<input type="text" class="numerico" readonly="readonly" maxlength="2" />
+														</span>
+														<span class="pontuacao">25 pontos <span>de 30 possíveis</span></span>
+													</li>
+													
+													<li class="apostaControl">												
+														<span class="botao">
+															<input type="submit" value="Salvar" class="salvarApostas round" title="Salvar" />
+														</span>
+														
+														<span class="info">
+															Você poderá alterar seus palpites quantas vezes quiser enquanto o jogo estiver aberto
+														</span>											
+													</li>
+												</ul>
+											</form>
+										</li>								
+									</ul>
+									
+									<ul class="jogo aberto round">
+										<div class="cabecaJogo round">
+											<ul>
+												<li class="horario">11:30</li>
+												
+												<li class="equipes">
+													<span class="aR">
+														Uruguai
+														<img class="bandeira" src="Imagens/Bandeiras/uruguay.png" alt="" width="24px" height="24px"/>
+													</span>
+													
+													<span class="x">X</span>
+													
+													<span class="aL">
+														<img class="bandeira" src="Imagens/Bandeiras/mexico.png" alt="" width="24px" height="24px"/>
+														México												
+													</span>
+												</li>
+												
+												<li class="status">00:40:00</li>
+											</ul>
+										</div>
+										
+										<li class="apostas">
+											<form>
+												<ul class="stripes">
+													<li class="bilhete">
+														
+														<span class="campos">
+															<input type="text" class="numerico" readonly="readonly" maxlength="2" />
+															X
+															<input type="text" class="numerico" readonly="readonly" maxlength="2" />
+														</span>
+														<span class="pontuacao">25 pontos <span>de 30 possíveis</span></span>
+													</li>
+													
+													<li class="apostaControl">												
+														<span class="botao">
+															<input type="submit" value="Salvar" class="salvarApostas round" title="Salvar" />
+														</span>
+														
+														<span class="info">
+															Você poderá alterar seus palpites quantas vezes quiser enquanto o jogo estiver aberto
+														</span>											
+													</li>
+												</ul>
+											</form>
+										</li>								
+									</ul>
+								</div>
+							</li>	
+											
+						</ul>
+					</div>
+				</div>
+				
+				<div class="colR">
+					<div class="placar">
+						<a href="#" title="Ranking" class="ranking">Ranking</a>
+						
+						<ul class="ranking">
+							<li><span class="nome">Jogador 1</span><span>125</span></li>
+							<li><span class="nome">Jogador 2</span><span>125</span></li>
+							<li><span class="nome">Jogador 3</span><span>125</span></li>
+							<li><span class="nome">Jogador 4</span><span>125</span></li>
+							<li><span class="nome">Jogador 5</span><span>125</span></li>
+						</ul>
+						
+						<ul class="premio">
+							<li><span>1º</span>R$ 1250,00</li>
+							<li><span>2º</span>R$ 250,00</li>
+							<li><span>3º</span>R$ 100,00</li>
+						</ul>
+					</div>
+				</div>
+				
+			</div>
+			
+			<div class="bottom"></div>
+		</div>
+		<!-- Content -->
+		
+		<!-- Footer -->
+		<div id="footer" class="w960">
+			<ul class="menuFooter">
+				<li><a href="index.html" title="Jogos">Jogos</a></li>
+				<li><a href="ranking.html" title="Ranking">Ranking</a></li>
+				<li><a href="sobre.html" title="Sobre">Sobre</a></li>
+				<li><a href="contato.html" title="Contato">Contato</a></li>
+			</ul>
+			
+			<span class="penalti"></span>
+			
+			<a class="nbr" href="http://www.londrinatechday.com.br/" title="Londrina TechDay" target="_blank">Londrina TechDay</a>
+		</div>
+		<!-- Footer -->
+
+	</div>
+
+	<script type="text/javascript" src="Js/jquery.corner.js"></script>
+	<script type="text/javascript" src="Js/jquery.extensions.js"></script>
+	<script type="text/javascript" src="Js/functions.js"></script>
+
+</body>
+</html>

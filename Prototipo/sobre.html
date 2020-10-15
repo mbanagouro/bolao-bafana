@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>Sobre - Bolão Bafana</title>
+
+	<link rel="stylesheet" type="text/css" media="screen" href="Css/global.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="Css/pages.css" />
+
+	<script type="text/javascript" src="Js/jquery-1.6.1.min.js"></script>
+	<script type="text/javascript" src="Js/modernizr-1.7.min"></script>
+
+	<!--[if lt IE 9]>
+	<script type="text/javascript" src="http://ie7-js.googlecode.com/svn/version/2.1(beta4)/IE9.js"></script>
+	<![endif]-->
+
+	<!--[if lte IE 9]>
+		<script type="text/javascript" src="Js/ie6.warning.js"></script>
+		<script type="text/javascript">
+			jQuery(function(){
+				e('Imagens/browser/');
+				$('div#_l').click(function() { $(this).remove(); $('div#_d').remove(); });
+			})
+		</script>
+	<![endif]-->
+</head>
+
+<body>
+
+	<div id="wrapper">
+		
+		<div id="header">
+			<div class="w960">
+				<a href="#" title="Home" class="logo">Bolão Bafana</a>
+				
+				<ul class="menuHeader">
+					<li><a href="index.html" title="Jogos">Jogos</a></li>
+					<li><a href="ranking.html" title="Ranking">Ranking</a></li>
+					<li><a href="sobre.html" title="Sobre">Sobre</a></li>
+					<li><a href="contato.html" title="Contato">Contato</a></li>
+				</ul>
+			</div>
+		</div>
+		
+		<div id="content">
+			<div class="top"></div>
+			
+			<!-- Conteúdo -->
+			<div class="w960 center">
+				
+				<ul class="userInfo round">
+					<li class="nome">E ai Fulano, blz?</li>
+					<li class="pontuacao">Você tem 235 pontos e está na 14ª posição.</li>
+					
+					<span class="control">
+						<li class="control">
+							<a href="#" class="mudarSenha">Mudar senha</a>						
+							<div class="mudarSenha round">
+								<ul>
+									<form>
+										<li>
+											<label>Senha atual</label>
+											<input type="password" class="password round" />
+										</li>
+										
+										<li>
+											<label>Nova atual</label>
+											<input type="password" class="password round" />
+										</li>
+										
+										<li>
+											<label>Confirme nova senha</label>
+											<input type="password" class="password round" />
+										</li>
+										
+										<li class="controle">
+											<input type="submit" value="Trocar senha" class="trocar" />
+											<input type="reset" value="Cancelar" class="cancelar" />
+										</li>
+										
+										<li class="msgRetorno">
+											<span>Trocando senha</span>
+										</li>
+									</form>
+								</ul>
+							</div>
+						</li>
+						<li class="control"><a href="#">Sair</a></li>
+					</span>
+				</ul>
+				
+				<h1 class="heading">Sobre</h1>
+				
+				<div id="Sobre">
+					<ul class="submenuSimples">
+						<li><a href="#comoFunciona">Como funciona</a></li>
+						<li><a href="#pontuacao">Pontuação</a></li>
+						<li><a href="#premiacao">Premiação</a></li>					
+						<li><a href="#palpiteCampeao">Palpite Campeão</a></li>					
+						<li><a href="#convidarAmigos">Convidar amigos</a></li>
+						<li><a href="#auditoria">Auditoria</a></li>
+					</ul>
+							
+					<h2><a name="comoFunciona">Como funciona</a></h2>
+								
+					<p>O Bolão Bafana é uma competição entre amigos que usa os jogos de mata-mata (Copa do Mundo FIFA, Copa América, Copa das Confedereções, etc) como apostas e os que somarem mais pontos ao final da competição serão premiados da <a href="#premiacao" title="Premiação">seguinte forma.</a><br /><br />
+								
+					Para jogar é fácil. Basta ir em <a href="#">Jogos</a> e clicar em algum dia para mostrar quais jogos acontecerão naquela data. Feito isso, é só clicar sobre o jogo e 'chutar' seus palpites. Obviamente você não poderá apostar em jogos que já ocorreram, mas poderá consultar seus palpites clicando sobre os jogos e conferindo a pontuação que você conquistou naquela partida.<br /><br />
+
+					O Bolão Bafana inicia apenas com a primeira fase (fase de grupos) e todos as partidas desta fase estão lá, divididos por dia. Você pode apostar em todos os jogos quantas vezes quiser. Então não se preocupe se quiser mudar algum palpite, mas fique atento porque 1 (uma) hora antes do início da partida as apostas são encerradas para aquele jogo.
+					Conforme as outras fases vão se formando a página de jogos será atualizada com estas novas partidas e serão abertas as apostas.<br /><br />
+
+					<span class="pl">
+					<span class="sub"><a name="criteriosDesempate" class="subt">Critérios de desempate</a></span>
+					Apenas 1 (um) critério será considerado em caso de empate entre os bilhetes: <strong>o total de resultados exatos daquele bilhete.</strong><br /><br />
+					Dessa forma se 2 bilhetes ficaram empatados, aquele que obtiver maior número de acertos de resultados exatos levará vantagem. Se mesmo assim persistir o empate, a premiação será somada e dividida igualmente entre os participantes que ficaram empatados. Ou seja se 3 bilhetes ficaram empatados em 2º lugar, serão somados os prêmios do 2º, 3º e 4º colocados (30% + 10% + 0%) e divididos igualmente (40% / 3 = 13,3%) entre estes bilhetes.<br /><br />
+
+					<span class="sub"><a class="subt">Partidas eliminatórias</a></span>
+					Nas partidas eliminatórias será considerado apenas o resultado até o final da prorrogação (caso exista). Se houver disputa por pênaltis, será considerado o placar do empate e o time vencedor da partida.
+					</span>
+					</p>
+
+					<h2><a name="pontuacao">Pontuação</a></h2>
+								
+					<p>A pontuação funciona da seguinte forma:<br /><br />
+					<span class="pl">Resultado exato (ambos placares): <strong>10 pontos</strong><br />
+					Acertou a coluna e um dos placares: <strong>6 pontos</strong><br />
+					Acertou somente a coluna: <strong>3 pontos</strong><br /><br />
+					
+					<strong>Caso ocorra empate e vai para os pênaltis (somentes nas fases eliminatórias)</strong><br /><br />
+					Resultado exato (acertou o placar do empate e o vencedor): <strong>10 pontos</strong><br />
+					Acertou o placar, mas não acertou o vencedor: <strong>7 pontos</strong><br />
+					Acertou o vencedor, mas errou os placares: <strong>5 pontos</strong><br />
+					Acertou somente empate: <strong>3 pontos</strong><br /><br />
+					</span>
+
+					E multiplica-se o valor pelo peso de cada fase:<br /><br />
+					<span class="pl">1ª fase: peso <strong>1</strong><br />
+					Oitavas-de-final: peso <strong>2</strong><br />
+					Quartas-de-final: peso <strong>3</strong><br />
+					Semi-final: peso <strong>4</strong><br />
+					Disputa de 3º e 4º lugares: peso <strong>5</strong><br />
+					Final: peso <strong>6</strong><br /><br />
+					</span>
+
+					Veja como funciona nos exemplos abaixo:<br /><br />
+
+					<span class="pl"><strong>Situação 1:</strong><br />
+					Resultado da partida: <strong>Brasil 2 x 1 Argentina</strong> na Primeira Fase <strong>(peso 1)</strong><br />
+					Palpite A: <strong>2 x 1 = 10 * 1 = 10 pontos</strong> (acertou o resultado exato)<br />
+					Palpite B: <strong>3 x 1 = 6 * 1 = 6 pontos</strong> (acertou a coluna e 1 dos placares)<br />
+					Palpite C: <strong>1 x 0 = 3 * 1 = 3 pontos</strong> (acertou a coluna, ou seja o vencedor)<br />
+					Palpite D: <strong>2 x 3 = 0 * 1 = 0 pontos</strong> (acertou um placar, mas como errou a coluna não leva nenhum ponto)<br />
+					Palpite D: <strong>1 x 1 = 0 * 1 = 0 pontos</strong> (acertou um placar, mas como errou a coluna não leva nenhum ponto)<br />
+					Palpite E: <strong>0 x 0 = 0 * 1 = 0 pontos</strong> (errou completamente)<br /><br />
+
+					<strong>Situação 2:</strong><br />
+					Resultado da partida: <strong>Brasil 1 x 1 Argentina. Brasil ganha</strong> nas Quartas-de-final <strong>(peso 3)</strong><br />
+					Palpite A: <strong>1 x 1 (Brasil ganha) = 10 * 3 = 30 pontos</strong> (acertou o resultado exato)<br />
+					Palpite B: <strong>1 x 1 (Argentina ganha) = 7 * 3 = 21 pontos</strong> (acertou o placar, mas não acertou o vencedor)<br />
+					Palpite C: <strong>2 x 2 (Brasil ganha) = 5 * 3 = 15 pontos</strong> (acertou o vencedor, mas errou os placares)<br />
+					Palpite D: <strong>0 x 0 (Argentina ganha) = 3 * 3 = 9 pontos</strong> (acertou somente empate)<br />
+					Palpite E: <strong>3 x 1 = 0 * 3 = 0 pontos</strong> (errou completamente)</span>
+					</p>
+								
+					<h2><a name="premiacao">Premiação</a></h2>
+								
+					<p>Apenas os 3 (três) melhores colocados serão premiados ao final da competição. Os vencedores receberão uma premiação em dinheiro relativa à arrecadação total (bruta) dividido dessa forma:<br /><br />
+								
+					<span class="pl">1º colocado: <strong>50%</strong><br />
+					2º colocado: <strong>30%</strong><br />
+					3º colocado: <strong>10%</strong><br /><br /></span>
+
+					Em caso de empate verificar <a href="#criteriosDesempate">critérios de desempate.</a><br />
+					Obs: os 10% restantes da arrecadação total serão usados nos custos operacionais do sistema.
+					</p>
+								
+					<h2><a name="palpiteCampeao">Palpite Campeão</a></h2>
+								
+					<p>Antes do término da primeira fase será disponibilizado, junto aos jogos o Palpite Campeão. Nele o jogador escolherá os 4 primeiros colocados da competição e ganhará 25 pontos para cada acerto. Então se você não foi muito bem na primeira fase poderá contar com a sorte e virar o jogo no final, porque serão 100 pontos em disputa com o Palpite Campeão.</p>
+								
+					<h2><a name="convidarAmigos">Convidar amigos</a></h2>
+								
+					<p>Você pode <a href="#" title="Indicações">convidar</a> seus amigos para participar do Bolão Bafana.</p>
+								
+					<h2><a name="premiacao">Auditoria</a></h2>
+								
+					<p>Assim que a partida for finalizada e o placar for computado, estará disponível um link de acesso que conterá todas as apostas de todos participantes para consulta.<br /><br />
+								
+					Todos estes links ficarão abrigados <a href="#" title="Auditoria">nessa área</a>.
+				</div>
+			</div>
+			<!-- /Conteúdo -->
+			
+			<div class="bottom"></div>
+		</div>
+		
+		<div id="footer" class="w960">
+			<ul class="menuFooter">
+				<li><a href="index.html" title="Jogos">Jogos</a></li>
+				<li><a href="ranking.html" title="Ranking">Ranking</a></li>
+				<li><a href="sobre.html" title="Sobre">Sobre</a></li>
+				<li><a href="contato.html" title="Contato">Contato</a></li>
+			</ul>
+			
+			<span class="penalti"></span>
+			
+			<a class="nbr" href="http://www.londrinatechday.com.br/" title="Londrina TechDay" target="_blank">Londrina TechDay</a>
+		</div>
+
+	</div>
+	
+	<script type="text/javascript" src="Js/jquery.corner.js"></script>
+	<script type="text/javascript" src="Js/jquery.extensions.js"></script>
+	<script type="text/javascript" src="Js/functions.js"></script>	
+
+</body>
+</html>

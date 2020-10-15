@@ -1,0 +1,653 @@
+@charset "utf-8";
+
+/* LOGIN */
+div.loginBox {
+	width: 380px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin: -225px 0 0 -190px;
+}
+	div.loginBox div.logo {
+		width: 370px;
+		height: 126px;
+		background: url(../Imagens/sprites/principal.png);
+		text-indent: -9999px;
+		margin-left: -10px;
+	}
+	
+	ul.loginForm li.input {
+		width: 310px; /* 378px */
+		height: 25px; /* 81px */
+		background: url(../Imagens/sprites/principal.png) 0 -126px;
+		padding: 28px 34px;
+		margin-bottom: -10px;
+	}	
+		ul.loginForm li.input label {
+			font-family: "Bookman Old Style", Georgia, "Times New Roman", Times, serif;
+			font-size: 18px;
+			font-weight: bold;
+			color: #2a5005;
+			display: inline-block;
+			width: 70px;
+		}
+		
+		ul.loginForm li.input input {
+			font-family: Georgia, "Times New Roman", Times, serif;
+			width: 225px;
+			border: none;
+			background: none;
+			font-size: 16px;
+		}
+		
+		ul.loginForm li.controle {
+			margin: 25px 0 35px 0;
+		}		
+			ul.loginForm li.controle input {
+				text-transform: uppercase;
+				color: #2a5005;
+				font-size: 18px;
+				font-weight: bold;
+				background: #f5fe0b;
+				border: none;
+				cursor: pointer;
+				padding: 8px 14px;
+				margin-left: 135px;
+			}
+				ul.loginForm li.controle input:hover { background: #000; color: #f5fe0b; }
+				
+	div.loginBox span.separador { margin: 0 20px; }
+	
+	ul.submenuLogin {
+		padding: 20px 40px;
+	}		
+		ul.submenuLogin li.sub { padding: 6px 0; }
+		ul.submenuLogin li.sub a {
+			font-size: 17px;
+			font-weight: bold;
+			color: #fff;
+			text-decoration: none;
+			text-shadow: #000 0 1px;
+		}
+			ul.submenuLogin li.sub a:hover { text-decoration: underline; }
+			
+		ul.submenuLogin li.recuperar {
+			background: #fff;
+			padding: 15px;
+			margin-top: 20px;
+			display: none;
+		}
+			ul.submenuLogin li.recuperar label {
+				display: block;				
+				font-size: 16px;
+				font-weight: bold;
+				font-family: "Bookman Old Style", Georgia, "Times New Roman", Times, serif;
+				color: #2a5005;
+				margin-bottom: 5px;
+			}
+			
+			ul.submenuLogin li.recuperar input[type=text] {
+				font-family: Georgia, "Times New Roman", Times, serif;
+				padding: 5px;
+				border: 2px solid #2a5005;
+				width: 190px;
+				background: #f5fe0b;
+			}
+			
+			ul.submenuLogin li.recuperar input[type=submit] {
+				padding: 3px 5px;
+			}
+
+/* JOGOS */
+div.Fase {
+	padding: 10px 0;
+	border-bottom: 2px dotted #ccc;
+}	
+	div.Fase div.cabeca {
+		background: #e2e406;
+		padding: 15px;
+	}
+		div.Fase div.cabeca h2 {
+			color: #2a5005;
+			font-size: 18px;
+			cursor: pointer;
+		}
+			div.Fase div.cabeca h2:hover { color: #224004; }
+		
+		div.Fase div.cabeca span.control {
+			float: right;
+			margin-top: -14px;
+		}
+			div.Fase div.cabeca span.control a { text-decoration: none; }
+			div.Fase div.cabeca span.control div {
+				font-family: Georgia, "Times New Roman", Times, serif;
+				font-size: 12px;
+				color: #898a04;
+			}
+				div.Fase div.cabeca span.control div:hover { color: #6e7003; }
+				div.Fase div.cabeca span.control div span.ico {
+					width: 7px;
+					height: 4px;
+					display: inline-block;
+					background: url(../Imagens/sprites/principal.png) -21px -207px;
+					position: relative;
+					top: -2px;
+					margin-right: 3px;
+				}
+					
+			div.Fase div.cabeca span.control div.recolher { display: none; }
+			div.Fase div.cabeca span.control div.recolher span.ico { background-position: -21px -211px; }
+		
+	ul.tabela { padding: 5px 0; }
+	ul.tabela li.dia { margin-top: 3px; }
+	
+	ul.tabela a.cabecaDia {
+		font-family: Georgia, "Times New Roman", Times, serif;
+		background: #2a5005;
+		display: block;
+		color: #fff;
+		padding: 10px 15px;
+		text-decoration: none;
+	}
+		ul.tabela a.cabecaDia:hover { background: #224004; }
+		
+		ul.tabela a.cabecaDia.passado { background: #d2d2d2; color: #666; }
+		ul.tabela a.cabecaDia.passado:hover { background: #c4c4c4; color: #333; }
+	
+	div.jogosDia { margin-bottom: 10px; display: none; }
+	
+	ul.jogo { margin-top: 3px; position: relative; }
+	
+	div.cabecaJogo {
+		display: block;
+		text-decoration: none;
+		font-size: 17px;
+		cursor: pointer;
+	}
+		ul.jogo div.cabecaJogo li.equipes span {
+			display: inline-block;
+			width: 200px;
+			padding: 0 !important;
+		}
+			ul.jogo div.cabecaJogo li.equipes span.x { width: 20px; }
+				
+		ul.jogo.aberto { background: #e7e7e7; color: #a8a8a8; }
+		ul.jogo.aberto div.cabecaJogo:hover { background: #dbdbdb; }
+		ul.jogo.aberto div.cabecaJogo li.equipes { color: #2a5005; }
+		ul.jogo.aberto div.cabecaJogo li.equipes span.x { color: #a8a8a8; }
+		ul.jogo.aberto li.apostas ul li.bilhete span.pontuacao { display: none; }
+		
+		ul.jogo.encerrado { background: #e7c0c0; color: #b17575; }
+		ul.jogo.encerrado div.cabecaJogo:hover { background: #d9b4b4; }
+		ul.jogo.encerrado div.cabecaJogo li.equipes { color: #984f4f; }
+		ul.jogo.encerrado div.cabecaJogo li.equipes span.x { color: #b17575; }
+		ul.jogo.encerrado li.apostas ul li.bilhete span.campos input { border: 2px solid #b17575; color: #984f4f; }
+		ul.jogo.encerrado li.apostas ul li.bilhete span.pontuacao { display: none; }
+		ul.jogo.encerrado li.apostaControl { display: none; }
+		
+		ul.jogo.finalizado { background: #c0e7c6; color: #6e9449; }
+		ul.jogo.finalizado div.cabecaJogo:hover { background: #b4d9b9; }
+		ul.jogo.finalizado div.cabecaJogo li.equipes { color: #2a5005; }
+		ul.jogo.finalizado div.cabecaJogo li.equipes span.x { color: #6e9449; }
+		ul.jogo.finalizado li.apostas ul li.bilhete span.campos input { border: 2px solid #6e9449; color: #2a5005; }
+		ul.jogo.finalizado li.apostaControl { display: none; }
+	
+		div.cabecaJogo ul { padding: 10px 15px; }
+		
+		div.cabecaJogo ul li { display: inline-block; }
+		div.cabecaJogo ul li.horario { width: 60px; }		
+		div.cabecaJogo ul li.info { width: 20px; }
+		
+		div.cabecaJogo ul li.equipes {
+			width: 500px;
+			text-align: center;
+			font-weight: bold;
+		}
+			div.cabecaJogo ul li.equipes span.x { padding: 0 5px; }
+		
+		div.cabecaJogo ul li.status {
+			width: 98px;
+			position: relative;
+			top: 2px;
+		}
+			div.cabecaJogo ul li.status span.info {
+				font-size: 9px;
+				display: block;
+				text-transform: uppercase;	
+				position: absolute;
+				top: -10px;
+				/*line-height: 0;*/
+				/*top: -8px\9;*/
+			}
+			
+			div.cabecaJogo ul li.status span.destaque {
+				text-transform: uppercase;
+				line-height: 15px;
+			}
+		
+		li.apostas { display: none; }
+		li.apostas ul { padding: 5px 10px 7px 10px; }
+		li.apostas ul li.bilhete {
+			background: url(../Imagens/bg/preto05.png);
+			padding: 5px 10px;
+			margin-bottom: 1px;
+		}
+			li.apostas ul li.bilhete.stripe { background: url(../Imagens/bg/preto09.png); }
+				
+			.apostas span.ico {
+				background: url(../Imagens/sprites/principal.png) 0 -207px;
+				width: 21px;
+				height: 14px;
+				display: inline-block;
+				text-indent: 6px;
+				font-size: 10px;
+				line-height: 13px;
+				margin-left: 10px;
+				position: relative;
+				top: -3px;
+			}
+			
+			li.apostas ul li.bilhete span.campos {
+				font-size: 17px;
+				font-weight: bold;
+				text-align: center;
+				width: 620px;
+				/*width: 348px\9;*/
+				display: inline-block;
+			}
+				li.apostas ul li.bilhete span.campos input {
+					border: 2px solid #b9b9b9;
+					width: 23px;
+					font-size: 16px;
+					font-weight: bold;
+					text-align: center;
+					color: #666;
+					margin: 0 9px;
+				}
+				
+			li.apostas ul li.bilhete span.pontuacao {
+				font-weight: bold;
+				margin-left: -235px;
+			}
+				div.mata-mata li.apostas ul li.bilhete span.pontuacao { margin-left: -215px; }
+				li.apostas ul li.bilhete span.pontuacao span {
+					font-size: 14px;
+					font-weight: normal;
+				}
+				
+			li.apostaControl {
+				padding: 6px 10px;
+				padding-bottom: 0;
+			}
+				
+			li.apostaControl span {
+				display: inline-block;
+			}
+				li.apostaControl span.botao {
+					text-align: right;
+					width: 133px;
+					padding-left: 233px;
+					padding-right: 20px;
+				}
+			
+				li.apostaControl span.info {
+					font-size: 10px;
+					width: 200px;
+				}
+				
+				li.apostaControl a {
+					font-family: Georgia, "Times New Roman", Times, serif;
+					color: #2a5005;
+					font-size: 12px;
+					text-decoration: none;
+					margin-right: 5px;
+				}
+					li.apostaControl a:hover { color: #224004; }
+					li.apostaControl a span {
+						color: #a8a8a8;
+						position: relative;
+						top: -2px;
+						margin-right: 3px;
+					}					
+				
+				li.apostaControl input {
+					text-transform: uppercase;
+					color: #fff;
+					font-size: 16px;
+					font-weight: bold;
+					background: #2a5005;
+					border: none;
+					cursor: pointer;
+					padding: 5px 25px 6px 25px;
+				}
+					li.apostaControl input:hover { background: #224004; }
+		
+		span.bandeira {
+			width: 24px !important;
+			height: 17px;
+			background: url(../Imagens/sprites/bandeiras.png);
+			display: inline-block;
+			position: relative;
+			top: 2px;
+			margin: 0 5px;
+		}
+			span.bandeira.africa_do_sul		{ background-position: 0		0; }
+			span.bandeira.mexico			{ background-position: -24px	0; }
+			span.bandeira.uruguai			{ background-position: -48px	0; }
+			span.bandeira.franca			{ background-position: -72px	0; }
+			
+			span.bandeira.argentina			{ background-position: 0		-17px; }
+			span.bandeira.nigeria			{ background-position: -24px	-17px; }
+			span.bandeira.coreia_do_sul		{ background-position: -48px	-17px; }
+			span.bandeira.grecia			{ background-position: -72px	-17px; }
+			
+			span.bandeira.inglaterra		{ background-position: 0		-34px; }
+			span.bandeira.eua				{ background-position: -24px	-34px; }
+			span.bandeira.eslovenia			{ background-position: -48px	-34px; }
+			span.bandeira.argelia			{ background-position: -72px	-34px; }
+			
+			span.bandeira.alemanha			{ background-position: 0		-51px; }
+			span.bandeira.servia			{ background-position: -24px	-51px; }
+			span.bandeira.australia			{ background-position: -48px	-51px; }
+			span.bandeira.gana				{ background-position: -72px	-51px; }
+			
+			span.bandeira.holanda			{ background-position: 0		-68px; }
+			span.bandeira.dinamarca			{ background-position: -24px	-68px; }
+			span.bandeira.japao				{ background-position: -48px	-68px; }
+			span.bandeira.camaroes			{ background-position: -72px	-68px; }
+			
+			span.bandeira.italia			{ background-position: 0		-85px; }
+			span.bandeira.paraguai			{ background-position: -24px	-85px; }
+			span.bandeira.nova_zelandia		{ background-position: -48px	-85px; }
+			span.bandeira.eslovaquia		{ background-position: -72px	-85px; }
+			
+			span.bandeira.brasil			{ background-position: 0		-102px; }
+			span.bandeira.portugal			{ background-position: -24px	-102px; }
+			span.bandeira.costa_do_marfim	{ background-position: -48px	-102px; }
+			span.bandeira.coreia_do_norte	{ background-position: -72px	-102px; }
+			
+			span.bandeira.espanha			{ background-position: 0		-119px; }
+			span.bandeira.chile				{ background-position: -24px	-119px; }
+			span.bandeira.suica				{ background-position: -48px	-119px; }
+			span.bandeira.honduras			{ background-position: -72px	-119px; }
+	
+	div.feedbackJogo {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		background: url(../Imagens/bg/cinza95.png);
+		z-index: 1;
+		text-align: center;
+		color: #fff;
+		top: 0;
+		left: 0;
+		
+		border-radius: 4px;
+		-moz-border-radius: 4px;
+		-webkit-border-radius: 4px;
+	}
+		div.feedbackJogo div {
+			position: relative;
+			color: #2a5005;
+		}
+			div.feedbackJogo div p {
+				font-family: Georgia, "Times New Roman", Times, serif !important;
+				font-weight: bold;
+			}
+			
+	span.penaltis {
+		margin: 0 -6px;
+		display: none;
+	}	
+		span.penaltis label {
+			font-size: 12px;
+			color: #666;
+			font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+			display: none;
+		}
+			ul.jogo.aberto span.penaltis label { display: inline; }
+		
+		span.penaltis input {
+			margin: 0 !important;
+			position: relative;
+			top: 1px;
+			border: none !important;
+		}
+	
+	/* Palpite Campeão */	
+	div.palpiteCampeao {
+		background: #b5d9ea !important;
+		position: relative;
+	}
+	
+	div.palpiteCampeao h2 {
+		color: #13668D !important;
+		cursor: pointer;
+	}
+		div.palpiteCampeao h2:hover { color: #0c3e56 !important; }
+	
+	div.palpiteCampeao a.expandirRecolher div {
+		color: #13668D !important;
+	}
+		div.palpiteCampeao a.expandirRecolher div span.ico { background-position: -28px -207px !important; }
+		div.palpiteCampeao a.expandirRecolher div.recolher span.ico { background-position: -28px -211px !important; }
+	
+	div.palpiteCampeao ul.apostas {
+		padding-top: 20px;
+		display: none;
+	}	
+		div.palpiteCampeao li.bilhete {
+			padding: 15px 0 10px 0;
+			margin-bottom: 2px;
+			background: url(../Imagens/bg/preto05.png);
+		}
+			div.palpiteCampeao li.stripe { background: url(../Imagens/bg/preto09.png); }
+		
+		div.palpiteCampeao ul.grupos li { display: inline-block; }
+		
+		div.palpiteCampeao li.bilheteId { padding-right: 5px; }
+		
+		div.palpiteCampeao li.dropdown { padding-left: 8px; }	
+		
+		div.palpiteCampeao li.dropdown label {
+			display: block;
+			padding: 0 0 5px 5px;
+			text-transform: uppercase;
+			font-size: 12px;		
+			font-weight: bold;
+			color: #13668d;
+		}
+		
+		div.palpiteCampeao li.dropdown select {
+			padding: 5px 3px;
+			border: 2px solid #80b7d1;
+			width: 140px;
+		}
+		
+		div.palpiteCampeao li.apostaControl { padding-top: 12px; }
+		div.palpiteCampeao li.apostaControl span.botao { padding-left: 250px; }
+				
+/* SOBRE */
+
+div#Sobre h2 { padding: 25px 10px 20px 10px; }
+
+	div#Sobre h2 a {
+		font-family: "Bookman Old Style", Georgia, "Times New Roman", Times, serif;
+		font-size: 20px;
+	}
+
+div#Sobre p {
+	margin: 0 10px;
+	padding-bottom: 25px;
+	color: #000;
+	font-size: 15px;	
+	line-height: 20px;
+	border-bottom: 1px dotted #666;
+}
+	div#Sobre p:last-child {
+		border-bottom: none;
+		padding-bottom: 5px;
+	}
+	
+	div#Sobre p a {
+		font-family: Georgia, "Times New Roman", Times, serif;
+		color: #2a5005;
+	}
+		div#Sobre p a:hover { color: #003E7E; }
+		
+	div#Sobre p strong, div#Sobre p b, div#Sobre p span { font-family: Georgia, "Times New Roman", Times, serif; }
+	div#Sobre p span.pl { display: block; margin-left: 20px; }
+	
+	div#Sobre p span.sub { font-weight: bold; display: block; }
+	div#Sobre p a.subt { color: #000; } 
+	div#Sobre p a.subt:hover { color: #000; } 
+		
+/* CONTATO */
+
+div#Contato p {
+	margin: 10px;
+	margin-top: 20px;
+	font-size: 15px;	
+}
+	div#Contato ul.form { padding: 15px 130px; }
+	
+/* COMPRAR BILHETES */
+
+div#Comprar p {
+	margin: 10px;
+	margin-top: 20px;
+	font-size: 15px;
+}
+
+div#Comprar strong {
+	color: #2a5005;
+	font-family: Georgia, "Times New Roman", Times, serif;
+	display: block;
+	padding-top: 5px;
+}
+
+div#Comprar ul.form { padding-top: 20px; }
+
+div#Comprar label {
+	display: inline-block;
+	width: 110px;
+}
+
+div#Comprar input.qtdade { width: 30px; }
+div#Comprar input.total { width: 80px; }
+
+div#Comprar li.controle { padding: 30px 0 0 121px; }
+
+div#Comprar li.pagseguro {
+	padding-top: 45px;
+	font-size: 12px;
+	color: #333;
+}
+
+	div#Comprar span.pagseguro {
+		display: inline-block;
+		background: url(../Imagens/sprites/principal.png) -222px -234px;
+		width: 138px;
+		height: 40px;
+		text-indent: -9999px;
+		vertical-align: middle;
+		margin-left: 5px;
+	}
+
+/* RANKING */
+
+div#Ranking {
+	padding: 25px 65px;
+	padding-bottom: 10px;
+}
+	div#Ranking table { width: 100%; }
+	
+	div#Ranking table td,
+	div#Ranking table th {
+		padding: 8px 10px;
+		font-family: Georgia, "Times New Roman", Times, serif;
+		text-align: left;
+		font-size: 14px;
+	}
+		div#Ranking table th.pos { width: 30px; padding-left: 15px;	}
+		div#Ranking table td.pos { padding-left: 15px;	}
+		div#Ranking table th.pts { width: 80px;	}		
+		
+	div#Ranking table thead tr { background: #e2e406; border-bottom: 1px dotted #fff; }
+	div#Ranking table tbody tr { border-bottom: 1px dotted #ccc; }
+	
+	div#Ranking table tbody tr.lider3 { background: #c0e7c6; border-color: #fff; }
+	div#Ranking table tbody tr.lider2 { background: #a9dbb1; border-color: #fff; }
+	div#Ranking table tbody tr.lider1 { background: #92cf9b; border-color: #fff; }
+	
+/* AUDITORIA */
+
+div#Auditoria {
+	padding: 25px 65px;
+	padding-bottom: 10px;
+}
+	div#Auditoria p { margin-bottom: 20px; }
+	div#Auditoria table { width: 100%; }
+	
+	div#Auditoria table td,
+	div#Auditoria table th,
+	div#Auditoria table td a {
+		padding: 8px 10px;
+		font-family: Georgia, "Times New Roman", Times, serif;
+		text-align: left;
+		font-size: 14px;
+	}
+		div#Auditoria table td a { padding: 0; }
+		
+	div#Auditoria table thead tr { background: #e2e406; border-bottom: 1px dotted #fff; }
+	div#Auditoria table tbody tr { border-bottom: 1px dotted #ccc; }
+	
+	div#Auditoria table td.min { width: 10px; }
+	div#Auditoria table td.sel { width: 200px; }
+	div#Auditoria table th.link { width: 80px; }
+	
+/* CADASTRO */
+	
+div#Cadastro p {
+	margin: 10px;
+	margin-top: 20px;
+	font-size: 15px;
+	text-align: center;
+}
+
+	div#Cadastro ul.form { padding: 10px 260px 25px 260px; }
+		
+	div#Cadastro input#_senha,
+	div#Cadastro input#_cpf { width: 100px; }
+	
+/* INDICAÇÕES */
+
+div#Indicacoes p {
+	margin: 10px;
+	margin-top: 20px;
+	font-size: 15px;	
+}
+	div#Indicacoes ul.form { padding: 15px 130px; }
+	div#Indicacoes input.email { width: 363px; }
+	
+	div#Indicacoes input.mais {
+		background: #2a5005;
+		color: #f5fe0b;
+		border: 2px solid #2a5005;
+		padding: 2px 10px 3px 10px;
+		height: 33px;
+		font-weight: bold;
+		text-transform: uppercase;
+		font-size: 16px;
+		position: relative;
+		top: 1px;
+		cursor: pointer;		
+		height: 34px\9;
+	}	
+		div#Indicacoes input.mais:hover,
+		div#Indicacoes input.mais:focus {
+			background: #f5fe0b;
+			color: #2a5005;
+		}
+		
+		div#Indicacoes span.lista li { padding-bottom: 5px; }

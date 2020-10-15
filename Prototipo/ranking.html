@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>Ranking - Bolão Bafana</title>
+
+	<link rel="stylesheet" type="text/css" media="screen" href="Css/global.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="Css/pages.css" />
+
+	<script type="text/javascript" src="Js/jquery-1.6.1.min.js"></script>
+	<script type="text/javascript" src="Js/modernizr-1.7.min"></script>
+
+	<!--[if lt IE 9]>
+	<script type="text/javascript" src="http://ie7-js.googlecode.com/svn/version/2.1(beta4)/IE9.js"></script>
+	<![endif]-->
+
+	<!--[if lte IE 9]>
+		<script type="text/javascript" src="Js/ie6.warning.js"></script>
+		<script type="text/javascript">
+			jQuery(function(){
+				e('Imagens/browser/');
+				$('div#_l').click(function() { $(this).remove(); $('div#_d').remove(); });
+			})
+		</script>
+	<![endif]-->
+</head>
+
+<body>
+
+	<div id="wrapper">
+		
+		<div id="header">
+			<div class="w960">
+				<a href="#" title="Home" class="logo">Bolão Bafana</a>
+				
+				<ul class="menuHeader">
+					<li><a href="index.html" title="Jogos">Jogos</a></li>
+					<li><a href="ranking.html" title="Ranking">Ranking</a></li>
+					<li><a href="sobre.html" title="Sobre">Sobre</a></li>
+					<li><a href="contato.html" title="Contato">Contato</a></li>
+				</ul>
+			</div>
+		</div>	
+		
+		<div id="content">
+			<div class="top"></div>
+			
+			<!-- Conteúdo -->
+			<div class="w960 center">
+				
+				<ul class="userInfo round">
+					<li class="nome">E ai Fulano, blz?</li>
+					<li class="pontuacao">Você tem 235 pontos e está na 14ª posição.</li>
+					
+					<span class="control">
+						<li class="control">
+							<a href="#" class="mudarSenha">Mudar senha</a>						
+							<div class="mudarSenha round">
+								<ul>
+									<form>
+										<li>
+											<label>Senha atual</label>
+											<input type="password" class="password round" />
+										</li>
+										
+										<li>
+											<label>Nova atual</label>
+											<input type="password" class="password round" />
+										</li>
+										
+										<li>
+											<label>Confirme nova senha</label>
+											<input type="password" class="password round" />
+										</li>
+										
+										<li class="controle">
+											<input type="submit" value="Trocar senha" class="trocar" />
+											<input type="reset" value="Cancelar" class="cancelar" />
+										</li>
+										
+										<li class="msgRetorno">
+											<span>Trocando senha</span>
+										</li>
+									</form>
+								</ul>
+							</div>
+						</li>
+						<li class="control"><a href="#">Sair</a></li>
+					</span>
+				</ul>
+				
+				<h1 class="heading">Ranking</h1>
+				
+				<div id="Ranking">
+					<table class="ranking">
+						<thead>
+							<tr>
+								<th class="pos">Pos</th>
+								<th>Nickname</th>
+								<th class="pts">Pts</th>
+							</tr>
+						</thead>
+						
+						<tbody>
+							<tr>
+								<td class="pos">1º</td>
+								<td>mbanagouro</td>
+								<td>1250</td>
+							</tr>
+							
+							<tr>
+								<td class="pos">2º</td>
+								<td>avnobre</td>
+								<td>1150</td>
+							</tr>
+							
+							<tr>
+								<td class="pos">3º</td>
+								<td>cds-software</td>
+								<td>1050</td>
+							</tr>
+							
+							<tr>
+								<td class="pos">4º</td>
+								<td>fulano</td>
+								<td>1250</td>
+							</tr>
+							
+							<tr>
+								<td class="pos">5º</td>
+								<td>sicrano</td>
+								<td>500</td>
+							</tr>
+							
+							<tr>
+								<td class="pos">6º</td>
+								<td>beltrano</td>
+								<td>400</td>
+							</tr>
+							
+							<tr>
+								<td class="pos">7º</td>
+								<td>jogador1</td>
+								<td>300</td>
+							</tr>
+							
+							<tr>
+								<td class="pos">8º</td>
+								<td>jogador2</td>
+								<td>200</td>
+							</tr>
+							
+							<tr>
+								<td class="pos">9º</td>
+								<td>jogador3</td>
+								<td>100</td>
+							</tr>
+						</tbody>
+					</table>			
+				</div>
+			</div>
+			<!-- /Conteúdo -->
+			
+			<div class="bottom"></div>
+		</div>
+		
+		<div id="footer" class="w960">
+			<ul class="menuFooter">
+				<li><a href="index.html" title="Jogos">Jogos</a></li>
+				<li><a href="ranking.html" title="Ranking">Ranking</a></li>
+				<li><a href="sobre.html" title="Sobre">Sobre</a></li>
+				<li><a href="contato.html" title="Contato">Contato</a></li>
+			</ul>
+			
+			<span class="penalti"></span>
+			
+			<a class="nbr" href="http://www.londrinatechday.com.br/" title="Londrina TechDay" target="_blank">Londrina TechDay</a>
+		</div>
+
+	</div>
+	
+	<script type="text/javascript" src="Js/jquery.corner.js"></script>
+	<script type="text/javascript" src="Js/jquery.extensions.js"></script>
+	<script type="text/javascript" src="Js/functions.js"></script>
+
+</body>
+</html>
