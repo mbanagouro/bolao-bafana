@@ -1,0 +1,45 @@
+﻿@model BolaoBafana.Dominio.Campeonato
+@{
+    ViewBag.Title = "Comprar Bilhete - Bolão Bafana";
+}
+
+@section Scripts {
+
+}
+
+<div class="colL">
+	<h1 class="heading">Comprar Bilhete</h1>
+				
+	<div id="Comprar">
+				
+		<p>
+            Para jogar o bolão da <b>@Model.Nome</b> primeiro você deve adquirir seu bilhete de aposta.<br /><br />
+            Assim que seu bilhete estiver liberado, ou seja estiver pago, você já poderá começar a jogar!
+        </p>
+					
+		<ul class="form">
+			<form id="form-bilhete" action="#" method="post" >			
+                <li>
+					<label for="_quantidade">Quantidade</label>
+					<input type="text" class="round numerico qtdade" id="_quantidade" value="1" readonly="readonly" />
+				</li>
+							
+				<li>
+					<label for="_total">Valor Total</label>
+					<input type="text" class="round total" id="_total" readonly="readonly" value="R$ 10,00" />
+				</li>
+							
+				<li class="controle">
+					<input type="submit" value="Comprar bilhete" class="round" />
+					<span class="retorno">Aguarde, efetuando compra...</span>
+				</li>
+							
+				<li class="pagseguro">
+					Bolão Bafana usa <span class="pagseguro">PagSeguro</span>
+				</li>
+			</form>
+		</ul>
+	</div>
+</div>
+
+@Html.Partial("_SideBar")

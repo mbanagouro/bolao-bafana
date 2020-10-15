@@ -1,0 +1,186 @@
+﻿@model BolaoBafana.Web.Models.JogosViewModel
+@{
+    ViewBag.Title = Model.Campeonato.Nome + " - Bolão Bafana";
+}
+
+@section Scripts {
+<script type="text/javascript" src="@Url.Content("~/Content/Js/jquery.countdown.min.js")"></script>
+<script type="text/javascript" src="@Url.Content("~/Content/Js/jquery.countdown-pt-BR.js")"></script>
+<script type="text/javascript" src="@Url.Content("~/Content/Js/jogos.js")"></script>
+}
+
+<div class="colL">
+	<h1 class="heading">@Model.Campeonato.Nome</h1>
+	
+    @foreach (var etapa in Model.Campeonato.Etapas.OrderByDescending(x => x.Id))
+    {
+    <div class="Fase @ClassFase(etapa)"> <!-- classes (mata-mata) -->
+		<div class="cabeca round">
+			<h2>@etapa.Nome</h2>
+			<span class="control">
+				<a class="expandirRecolher" href="#">
+					<div class="expandir">
+						<span class="ico"></span>
+						Expandir todos os dias
+					</div>
+								
+					<div class="recolher">
+						<span class="ico"></span>
+						Recolher todos os dias
+					</div>
+				</a>
+			</span>
+		</div>
+					
+		<ul class="tabela">
+            @foreach (var grupo in etapa.Jogos.GroupBy(j => j.Data.Date, j => j))
+            {
+			<li class="dia">
+				<a href="#" class="cabecaDia round @ClassDia(grupo.Key)">@String.Format("{0:dddd, dd/M}", grupo.Key)</a>
+				<div class="jogosDia">
+                    @foreach (var jogo in grupo.OrderBy(x => x.Data))
+                    {
+                    <ul class="jogo round @ClassJogo(jogo)"> <!-- classes (finalizado|aberto|encerrado) -->
+						<div class="cabecaJogo round">
+							<ul>
+								<li class="horario">@jogo.Data.ToString("HH:mm")</li>
+											
+								<li class="equipes">
+									<span class="aR">
+										@jogo.TimeDaCasa.Nome
+                                        <img class="bandeira" src="/content/imagens/bandeiras/@jogo.TimeDaCasa.Bandeira" alt="@jogo.TimeDaCasa.Nome" width="24px" height="24px"/>
+                                        @(jogo.Resultado.TimeDaCasa.HasValue ? jogo.Resultado.TimeDaCasa.Value.ToString() : String.Empty)
+									</span>
+
+									<span class="x">X</span>
+
+									<span class="aL">
+                                        @(jogo.Resultado.TimeVisitante.HasValue ? jogo.Resultado.TimeVisitante.Value.ToString() : String.Empty)
+                                        <img class="bandeira" src="/content/imagens/bandeiras/@jogo.TimeVisitante.Bandeira" alt="@jogo.TimeVisitante.Nome" width="24px" height="24px"/>
+										@jogo.TimeVisitante.Nome									
+									</span>
+								</li>
+                                
+                                @if (jogo.Resultado.Finalizado)
+                                {
+                                <li class="status"><span class="info">Jogo</span> <span class="destaque">Encerrado</span></li>
+                                }
+                                else
+                                {
+                                <li class="status" data-timer="@jogo.DataEmSegundos"></li>
+                                }
+							</ul>
+						</div>
+									
+						<li class="apostas">
+                            <form id="form-aposta" action="#" method="post">
+                                @{ 
+                                BolaoBafana.Dominio.Aposta aposta = Model.Apostas.FirstOrDefault(a => a.JogoId == jogo.Id) ?? new BolaoBafana.Dominio.Aposta(); 
+                                }
+                                <input type="hidden" name="ApostaId" value="@aposta.Id" />
+                                <input type="hidden" name="JogoId" value="@jogo.Id" />
+								<ul class="stripes">
+									<li class="bilhete">
+										<span class="campos">
+											<span class="penaltis">
+												<label for="cb_esq">Ganha nos pênaltis</label>
+												<input type="radio" id="cb_esq" name="Palpite.TimeDaCasaPenalti" value="true" @PalpiteChecked(aposta.Palpite.TimeDaCasaPenalti) @ReadOnlyJogo(jogo) />
+											</span>
+											<input type="text" class="numerico" name="Palpite.TimeDaCasa" value="@ValorPalpite(aposta.Palpite.TimeDaCasa)" @ReadOnlyJogo(jogo) maxlength="2" />
+											X
+											<input type="text" class="numerico" name="Palpite.TimeVisitante" value="@ValorPalpite(aposta.Palpite.TimeVisitante)" @ReadOnlyJogo(jogo) maxlength="2" />
+											<span class="penaltis">
+												<input type="radio" id="cb_dir" name="Palpite.TimeVisitantePenalti" value="true" @PalpiteChecked(aposta.Palpite.TimeVisitantePenalti) @ReadOnlyJogo(jogo) />
+												<label for="cb_dir">Ganha nos pênaltis</label>
+											</span>
+										</span>
+                                        
+                                        @if (jogo.Resultado.Finalizado)
+                                        { 
+										<span class="pontuacao">@aposta.CalcularPontuacao(jogo) pontos <span>de @(etapa.Peso * 10) possíveis</span></span>
+                                        }
+									</li>
+												
+									<li class="apostaControl">
+										<span class="botao">
+											<input type="submit" value="Salvar" class="salvarApostas round" title="Salvar" />
+										</span>
+													
+										<span class="info">
+											Você poderá alterar seus palpites quantas vezes quiser enquanto o jogo estiver aberto
+										</span>
+									</li>
+								</ul>
+							</form>
+						</li>								
+					</ul>
+                    }
+				</div>
+			</li>
+            }										
+		</ul>
+	</div>    
+    }
+</div>
+
+@Html.Partial("_SideBar")
+
+@functions {
+    string ClassFase(BolaoBafana.Dominio.Etapa etapa)
+    {
+        if (etapa.Tipo.Equals("Mata-Mata"))
+        {
+            return "mata-mata";
+        }
+        return String.Empty;
+    }
+
+    string ClassJogo(BolaoBafana.Dominio.Jogo jogo)
+    {
+        if (jogo.Resultado.Finalizado)
+        {
+            return "finalizado";
+        }
+        else if (DateTime.Now >= jogo.Data)
+        {
+            return "encerrado";
+        }
+        return "aberto";
+    }
+
+    string ClassDia(DateTime data)
+    {
+        if (DateTime.Now.Date > data.Date)
+        {
+            return "passado";
+        }
+        return String.Empty;
+    }
+
+    string ValorPalpite(int? valor)
+    {
+        if (valor.HasValue)
+        {
+            return valor.Value.ToString();
+        }
+        return String.Empty;
+    }
+
+    string PalpiteChecked(bool? valor)
+    {
+        if (valor.HasValue)
+        {
+            return valor.Value ? "checked" : String.Empty;
+        }
+        return String.Empty;
+    }
+
+    string ReadOnlyJogo(BolaoBafana.Dominio.Jogo jogo)
+    {
+        if (jogo.Resultado.Finalizado || DateTime.Now > jogo.Data)
+        {
+            return "readonly=\"readonly\"";
+        }
+        return "";
+    }
+}

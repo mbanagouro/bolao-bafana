@@ -1,0 +1,336 @@
+@charset "utf-8";
+
+/* CSS RESET - http://meyerweb.com/eric/tools/css/reset/ - v1.0 | 20080212 */
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent;margin:0;padding:0;}
+body{line-height:1;}
+ol,ul{list-style:none;}
+blockquote,q{quotes:none;}
+blockquote:before,blockquote:after,q:before,q:after{content:none;}
+:focus{outline:0;}
+ins{text-decoration:none;}
+del{text-decoration:line-through;}
+table{border-collapse:collapse;border-spacing:0;}
+
+/* COMUM */
+.w960 {
+	width: 960px;
+	margin: 0 auto;
+	position: relative;
+}
+
+span.separador {
+	display: block;
+	height: 1px;
+	border-top: 2px dotted #7f7f7f;
+}
+	span.separador.branco { border-top-color: #fff; }
+	
+.aC { text-align: center !important; }
+.aR { text-align: right !important; }
+.aL { text-align: left !important; }
+	
+/* VALIDAÇÃO */
+label.error { padding:2px !important; font-size:12px; color:#ff0000 !important; }
+	
+/* TIPOGRAFIA */
+* { font-family: "Trebuchet MS", Arial, Helvetica, sans-serif; }
+h1, h2 { font-family: "Bookman Old Style", Georgia, "Times New Roman", Times, serif; }
+p, label { font-family: Georgia, "Times New Roman", Times, serif; }
+
+/* ESTRUTURA */
+html, body { height: 100%; }
+body { background: url(../Imagens/bg/grama.jpg); }
+
+div#wrapper {
+	height: 100%;
+	position: relative;
+	margin: 0 auto;	
+	min-width: 960px;
+}
+	/* Header */
+	div#header {
+		height: 160px;
+		background: url(../Imagens/bg/faixa.png) repeat-x;		
+	}
+		div#header a.logo {
+			width: 370px;
+			height: 126px;
+			background: url(../Imagens/sprites/principal.png);
+			text-indent: -9999px;
+			position: relative;
+			top: 35px;
+			display: block;
+		}
+		
+		ul.menuHeader {
+			position: absolute;
+			top: 89px;
+			left: 365px;
+		}
+			ul.menuHeader li { display: inline; }
+			ul.menuHeader li a {
+				font-family: Georgia, "Times New Roman", Times, serif;
+				font-weight: bold;
+				font-size: 15px;
+				color: #000;
+				text-decoration: none;
+				padding-right: 15px;
+			}
+				ul.menuHeader li a:hover { text-decoration: underline; }
+				
+	/* Content */
+	div#content {
+		margin: 0 auto;
+		background: url(../Imagens/bg/branco_center.png) center top repeat-y;
+	}
+		div#content div.top { background: url(../Imagens/bg/branco_top.png) center no-repeat; height: 47px; margin-bottom: -5px; }
+		div#content div.bottom { background: url(../Imagens/bg/branco_bottom.png) center no-repeat; height: 47px; clear: both; }
+		
+		div#content div.colL {
+			width: 700px;
+			float: left;
+			margin-right: 15px;
+		}
+		
+		div#content div.colR {
+			float: right;
+			width: 245px;
+		}
+		
+		ul.userInfo {			
+			background: #2a5005;
+			font-size: 12px;
+			padding: 8px 13px;
+		}
+			ul.userInfo li { display: inline; }
+			ul.userInfo li, ul.userInfo li a { font-family: Georgia, "Times New Roman", Times, serif; }			
+			
+			ul.userInfo li.nome { color: #aac68d; padding-right: 20px; }
+			ul.userInfo li.pontuacao { color: #fff; }
+			
+			ul.userInfo span.control { float: right; position: relative; }
+			ul.userInfo li.control a {
+				color: #f5fe0b;
+				padding-left: 10px;
+			}
+				ul.userInfo li.control a:hover { color: #fff; }
+				
+		div.mudarSenha {
+			position: absolute;
+			background: #2a5005;
+			padding: 10px 15px;
+			padding-top: 5px;
+			right: 0;
+			top: 15px;
+			color: #fff;
+			display: none;
+			z-index: 1;
+		}
+			div.mudarSenha li {
+				display: block;
+				padding-top: 15px;
+			}
+			
+			div.mudarSenha label {
+				display: block;
+				padding-bottom: 5px;
+			}
+			
+			div.mudarSenha input.password {
+				border: 1px solid #e2e406;
+				padding: 3px 0;
+				width: 150px;
+			}
+			
+			div.mudarSenha li.controle {
+				text-align: center;
+				margin-left: -5px;
+			}			
+				div.mudarSenha input.trocar {
+					margin-bottom: 3px;
+					font-weight: bold;
+				}
+				
+			div.mudarSenha li.msgRetorno {
+				padding: 10px;
+				padding-bottom: 5px;
+				text-align: center;
+				display: none;		
+			}
+		
+		h1.heading {
+			color: #2a5005;
+			padding: 15px 10px;
+			font-size: 30px;
+			border-bottom: 2px dotted #7f7f7f;
+		}
+		
+		ul.submenuSimples {
+			padding: 15px 0;
+			border-bottom: 2px dotted #7f7f7f;
+		}
+			ul.submenuSimples li { padding: 0 0 10px 10px; }			
+			ul.submenuSimples li a {
+				font-family: Georgia, "Times New Roman", Times, serif;
+				color: #003e7e;
+				font-size: 14px;
+				text-decoration: none;
+				font-weight: bold;
+			}
+				ul.submenuSimples li a:hover { text-decoration: underline; }
+	
+	div.placar {
+		width: 226px;
+		height: 272px;
+		background: url(../Imagens/sprites/principal.png) 0 -221px;
+		margin: 30px 0 0 10px;
+		font-style: italic;
+		color: #fff;
+		font-size: 12px;
+		position: relative;
+	}
+		div.placar a.ranking {
+			display: block;
+			width: 165px;
+			height: 40px;
+			opacity: .5;
+			position: relative;
+			top: 30px;
+			left: 30px;
+			text-indent: -9999px;
+		}
+		
+		div.placar ul.ranking { padding: 40px 0 0 30px; }
+		div.placar ul.ranking li { padding-bottom: 4px; }
+		
+			div.placar ul.ranking span {
+				color: #ff0;
+				text-align: right;
+				display: inline-block;
+				width: 35px;
+			}
+			
+			div.placar ul.ranking span.nome {
+				color: #fff;
+				width: 132px;
+				text-align: left;
+			}
+			
+		div.placar ul.premio {
+			padding-left: 125px;
+			position: absolute;
+			bottom: 38px;
+		}
+		
+		div.placar ul.premio li { padding-bottom: 3px; }
+		div.placar ul.premio li span { color: #ff0; padding-right: 10px; }
+		
+	div.bannerBilhetes {
+		margin: 20px 0 0 10px;
+	}
+	
+	/* Form */	
+	ul.form {
+		padding: 65px;
+		padding-top: 0;
+	}
+		ul.form label {
+			display: block;
+			color: #2a5005;
+			font-weight: bold;
+			padding: 20px 0 5px 6px;
+		}
+		
+		ul.form input[type=text],
+		ul.form input[type=password],
+		ul.form textarea {
+			border: 1px solid #999;
+			padding: 7px 5px;
+			width: 428px;
+			font-size: 13px;
+		}
+			ul.form input[type=text]:focus,
+			ul.form input[type=password]:focus,
+			ul.form textarea:focus { background: #fcffb8; border-color: #2a5005; }
+			
+			ul.form textarea { height: 120px; max-width: 428px; }
+			
+			ul.form input[type=submit] {
+				background: #2a5005;
+				color: #f5fe0b;
+				border: 2px solid #2a5005;
+				padding: 4px 10px;
+				font-weight: bold;
+				text-transform: uppercase;
+				font-size: 16px;
+				cursor: pointer;
+			}
+				ul.form input[type=submit]:hover,
+				ul.form input[type=submit]:focus {
+					background: #f5fe0b;
+					color: #2a5005;					
+				}
+				
+			ul.form li.controle { padding-top: 20px; }
+			ul.form span.retorno {
+				padding-left: 10px;
+				font-size: 13px;
+				color: #333;
+				display: none;
+			}
+		
+	/* Footer */	
+	div#footer { padding: 30px; padding-bottom: 65px; }
+	
+	ul.menuFooter { padding: 0 30px 0 40px; float: left; }
+	
+		ul.menuFooter li {
+			display: inline;
+			padding-right: 30px;
+		}
+		
+		ul.menuFooter li a {
+			color: #fff;
+			font-family: Georgia, "Times New Roman", Times, serif;
+			font-size: 12px;
+			font-weight: bold;
+			text-decoration: none;
+			text-shadow: #000 0 1px;
+		}
+		
+		div#footer a:hover { text-decoration: underline !important; }
+		
+	div#footer span.penalti {
+		width: 53px;
+		height: 53px;
+		background: url(../Imagens/sprites/principal.png) -378px -126px;
+		float: left;
+		margin-top: -15px;
+	}
+	
+	div#footer a.nbr {
+		float: left;
+		color: #ff0;
+		font-family: Georgia, "Times New Roman", Times, serif;
+		font-size: 12px;
+		text-decoration: none;
+		text-shadow: #000 0 1px;
+		margin-left: 50px;
+		margin-top: 4px;
+	}
+				
+/* COLS -FAKE- */
+div#cols {
+	background: url(../Imagens/bg/cols.png) repeat-y center;
+	position: fixed;
+	height: 100%;
+	width: 100%;
+	opacity: .5;
+	filter: alpha(opacity = 10);
+	display: none;
+	z-index: 10;
+}
+
+label.error { color: #F00; }
+			
+			

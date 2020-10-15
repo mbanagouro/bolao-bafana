@@ -1,0 +1,28 @@
+﻿@model List<BolaoBafana.Dominio.Colocacao>
+@{
+    ViewBag.Title = "Ranking - Bolão Bafana";	
+}
+
+<h1 class="heading">Ranking</h1>
+			
+<div id="Ranking">
+	<table class="ranking">
+		<thead>
+			<tr>
+				<th class="pos">Pos</th>
+				<th>Nickname</th>
+				<th class="pts">Pts</th>
+			</tr>
+		</thead>
+					
+		<tbody>
+            @foreach (var colocaco in Model) {
+            <tr>
+                <td class="pos">@(colocaco.Posicao)º</td>
+				<td>@colocaco.Nickname</td>
+				<td>@colocaco.Pontuacao</td>
+			</tr>        
+            }
+		</tbody>
+	</table>			
+</div>

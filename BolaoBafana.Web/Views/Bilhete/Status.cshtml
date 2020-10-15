@@ -1,0 +1,30 @@
+﻿@model BolaoBafana.Dominio.Bilhete
+
+@{
+    ViewBag.Title = "Bilhete - Status - Bolão Bafana";
+    string registrado = BolaoBafana.Dominio.StatusCompra.Registrado.ToString();
+    string cancelado = BolaoBafana.Dominio.StatusCompra.Cancelado.ToString();
+}
+
+<div class="colL">
+	<h1 class="heading">Bilhete - Status da Compra</h1>
+				
+	<div id="Comprar">
+		@if (Model.Status.Equals(registrado) || Model.Status.Equals(cancelado)) {
+        <p>
+            Ops! Por alguma razão sua compra não foi <b>concluída</b> ou foi <b>cancelada.</b>
+            <br /><br />
+            Tente comprar um novo bilhete <a href="#">aqui</a>.
+        </p>
+        } else { 
+        <p>
+            O status da compra do seu bilhete é: <strong>@(Model.Status)</strong>
+            <br /><br />
+            
+            Assim que tivermos a confirmação de pagamento você poderá acessar a área de apostas.
+        </p>
+      }
+	</div>
+</div>
+
+@Html.Partial("_SideBar")

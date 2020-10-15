@@ -1,0 +1,210 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{29674618-3DD5-44EE-AA69-FF081FE50C07}</ProjectGuid>
+    <ProjectTypeGuids>{E53F8FEA-EAE0-44A6-8774-FFD645390401};{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BolaoBafana.Web</RootNamespace>
+    <AssemblyName>BolaoBafana.Web</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>false</UseIISExpress>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.4.1.10331.0\lib\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Web.Mvc, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Web.WebPages, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Web.Helpers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Code\Infra\BolaoAutorizadoAttribute.cs" />
+    <Compile Include="Code\Infra\XmlResult.cs" />
+    <Compile Include="Code\Servicos\ServicoDeAutenticacao.cs" />
+    <Compile Include="Controllers\BilheteController.cs" />
+    <Compile Include="Controllers\JogosController.cs" />
+    <Compile Include="Controllers\JogadorController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\RankingController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Code\Helpers\UserHelper.cs" />
+    <Compile Include="Models\JogosViewModel.cs" />
+    <Compile Include="Models\LoginModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\Css\global.css" />
+    <Content Include="Content\Css\pages.css" />
+    <Content Include="Content\Imagens\Bandeiras\argentina.png" />
+    <Content Include="Content\Imagens\Bandeiras\bolivia.png" />
+    <Content Include="Content\Imagens\Bandeiras\brazil.png" />
+    <Content Include="Content\Imagens\Bandeiras\colombia.png" />
+    <Content Include="Content\Imagens\Bandeiras\costa_rica.png" />
+    <Content Include="Content\Imagens\Bandeiras\paraguay.png" />
+    <Content Include="Content\Imagens\Bandeiras\penarol.gif" />
+    <Content Include="Content\Imagens\bg\branco_bottom.png" />
+    <Content Include="Content\Imagens\bg\branco_center.png" />
+    <Content Include="Content\Imagens\bg\branco_top.png" />
+    <Content Include="Content\Imagens\bg\cinza95.png" />
+    <Content Include="Content\Imagens\bg\cols.png" />
+    <Content Include="Content\Imagens\bg\email_marca.png" />
+    <Content Include="Content\Imagens\bg\email_rodape.jpg" />
+    <Content Include="Content\Imagens\bg\email_topo.jpg" />
+    <Content Include="Content\Imagens\bg\faixa.png" />
+    <Content Include="Content\Imagens\bg\grama.jpg" />
+    <Content Include="Content\Imagens\bg\preto05.png" />
+    <Content Include="Content\Imagens\bg\preto09.png" />
+    <Content Include="Content\Imagens\bg\preto5.png" />
+    <Content Include="Content\Imagens\bg\preto9.png" />
+    <Content Include="Content\Imagens\browser\background_browser.gif" />
+    <Content Include="Content\Imagens\browser\browser_chrome.gif" />
+    <Content Include="Content\Imagens\browser\browser_firefox.gif" />
+    <Content Include="Content\Imagens\browser\browser_ie.gif" />
+    <Content Include="Content\Imagens\browser\browser_opera.gif" />
+    <Content Include="Content\Imagens\browser\browser_safari.gif" />
+    <Content Include="Content\Imagens\favicon.gif" />
+    <Content Include="Content\Imagens\objs\email_logo.png" />
+    <Content Include="Content\Imagens\promo\banner_bilhetes.jpg" />
+    <Content Include="Content\Imagens\sprites\bandeiras.png" />
+    <Content Include="Content\Imagens\sprites\principal.png" />
+    <Content Include="Content\Js\contato.js" />
+    <Content Include="Content\Js\ie6.warning.js" />
+    <Content Include="Content\Js\jogos.js" />
+    <Content Include="Content\Js\jquery.countdown-pt-BR.js" />
+    <Content Include="Content\Js\jquery.countdown.min.js" />
+    <Content Include="Content\Js\jquery.extensions.js" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Js\functions.js" />
+    <Content Include="Content\Js\jquery-1.6.1.min.js" />
+    <Content Include="Content\Js\jquery.corner.js" />
+    <Content Include="Content\Js\jquery.validate.min.js" />
+    <Content Include="Content\Js\modernizr-1.7.min.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Login\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\_Footer.cshtml" />
+    <Content Include="Views\Shared\_Header.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Jogos\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\_SideBar.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BolaoBafana.Dados\BolaoBafana.Dados.csproj">
+      <Project>{15C19555-7D45-4450-9B92-D58277742957}</Project>
+      <Name>BolaoBafana.Dados</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BolaoBafana.Dominio\BolaoBafana.Dominio.csproj">
+      <Project>{8479D9DE-0E89-4BE3-93C8-1B89E9B1B5B6}</Project>
+      <Name>BolaoBafana.Dominio</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Bilhete\Index.cshtml" />
+    <Content Include="Views\Bilhete\Status.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Jogador\Status.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Ranking\Index.cshtml" />
+    <Content Include="Views\Ranking\Quadro.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Jogos\SemCampeonato.cshtml" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>19622</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

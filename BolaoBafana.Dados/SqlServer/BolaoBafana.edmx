@@ -1,0 +1,813 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="BolaoBafana.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="BolaoBafanaStoreContainer">
+    <EntitySet Name="Campeonatos" EntityType="BolaoBafana.Store.Campeonatos" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Etapas" EntityType="BolaoBafana.Store.Etapas" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Jogos" EntityType="BolaoBafana.Store.Jogos" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Apostas" EntityType="BolaoBafana.Store.Apostas" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Jogadores" EntityType="BolaoBafana.Store.Jogadores" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Times" EntityType="BolaoBafana.Store.Times" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Bilhetes" EntityType="BolaoBafana.Store.Bilhetes" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Contatos" EntityType="BolaoBafana.Store.Contatos" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Indicacoes" EntityType="BolaoBafana.Store.Indicacoes" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PalpitesCampeoes" EntityType="BolaoBafana.Store.PalpitesCampeoes" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="CampeonatoEtapa" Association="BolaoBafana.Store.CampeonatoEtapa">
+      <End Role="Campeonato" EntitySet="Campeonatos" />
+      <End Role="Etapa" EntitySet="Etapas" />
+    </AssociationSet>
+    <AssociationSet Name="EtapaJogo" Association="BolaoBafana.Store.EtapaJogo">
+      <End Role="Etapa" EntitySet="Etapas" />
+      <End Role="Jogo" EntitySet="Jogos" />
+    </AssociationSet>
+    <AssociationSet Name="JogoTimeDaCasa" Association="BolaoBafana.Store.JogoTimeDaCasa">
+      <End Role="Jogo" EntitySet="Jogos" />
+      <End Role="Time" EntitySet="Times" />
+    </AssociationSet>
+    <AssociationSet Name="JogoTimeVisitante" Association="BolaoBafana.Store.JogoTimeVisitante">
+      <End Role="Jogo" EntitySet="Jogos" />
+      <End Role="Time" EntitySet="Times" />
+    </AssociationSet>
+    <AssociationSet Name="JogoAposta" Association="BolaoBafana.Store.JogoAposta">
+      <End Role="Jogo" EntitySet="Jogos" />
+      <End Role="Aposta" EntitySet="Apostas" />
+    </AssociationSet>
+    <AssociationSet Name="JogadorAposta" Association="BolaoBafana.Store.JogadorAposta">
+      <End Role="Jogador" EntitySet="Jogadores" />
+      <End Role="Aposta" EntitySet="Apostas" />
+    </AssociationSet>
+    <AssociationSet Name="JogadorBilhete" Association="BolaoBafana.Store.JogadorBilhete">
+      <End Role="Jogador" EntitySet="Jogadores" />
+      <End Role="Bilhete" EntitySet="Bilhetes" />
+    </AssociationSet>
+    <AssociationSet Name="CampeonatoBilhete" Association="BolaoBafana.Store.CampeonatoBilhete">
+      <End Role="Campeonato" EntitySet="Campeonatos" />
+      <End Role="Bilhete" EntitySet="Bilhetes" />
+    </AssociationSet>
+    <AssociationSet Name="JogadorPalpiteCampeao" Association="BolaoBafana.Store.JogadorPalpiteCampeao">
+      <End Role="Jogador" EntitySet="Jogadores" />
+      <End Role="PalpiteCampeao" EntitySet="PalpitesCampeoes" />
+    </AssociationSet>
+    <AssociationSet Name="CampeonatoPalpiteCampeao" Association="BolaoBafana.Store.CampeonatoPalpiteCampeao">
+      <End Role="Campeonato" EntitySet="Campeonatos" />
+      <End Role="PalpiteCampeao" EntitySet="PalpitesCampeoes" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Campeonatos">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nome" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Inicio" Type="datetime" Nullable="false" />
+    <Property Name="Termino" Type="datetime" Nullable="false" />
+    <Property Name="Campeoes_Campeao" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Campeoes_TerceiroCampeao" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Campeoes_ViceCampeao" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Campeoes_QuartoCampeao" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="HabilitarBilhetes" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Etapas">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nome" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="CampeonatoId" Type="int" Nullable="false" />
+    <Property Name="Peso" Type="int" Nullable="false" />
+    <Property Name="Tipo" Type="nvarchar" Nullable="false" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="Jogos">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Data" Type="datetime" Nullable="false" />
+    <Property Name="Resultado_TimeDaCasa" Type="int" Nullable="true" />
+    <Property Name="Resultado_TimeVisitante" Type="int" Nullable="true" />
+    <Property Name="Resultado_TimeDaCasaPenalti" Type="bit" Nullable="true" />
+    <Property Name="Resultado_TimeVisitantePenalti" Type="bit" Nullable="true" />
+    <Property Name="EtapaId" Type="int" Nullable="false" />
+    <Property Name="EmbedVideo" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="TimeDaCasa_Id" Type="int" Nullable="false" />
+    <Property Name="TimeVisitante_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Apostas">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Palpite_TimeDaCasa" Type="int" Nullable="true" />
+    <Property Name="Palpite_TimeVisitante" Type="int" Nullable="true" />
+    <Property Name="Palpite_TimeDaCasaPenalti" Type="bit" Nullable="true" />
+    <Property Name="Palpite_TimeVisitantePenalti" Type="bit" Nullable="true" />
+    <Property Name="JogoId" Type="int" Nullable="false" />
+    <Property Name="JogadorId" Type="int" Nullable="false" />
+    <Property Name="Data" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Jogadores">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NomeCompleto" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="Email" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="Nickname" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Senha" Type="nvarchar" Nullable="false" MaxLength="15" />
+    <Property Name="CadastradoEm" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Times">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nome" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Bandeira" Type="nvarchar" Nullable="false" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="Bilhetes">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ComprouEm" Type="datetime" Nullable="false" />
+    <Property Name="Status" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="JogadorId" Type="int" Nullable="false" />
+    <Property Name="CampeonatoId" Type="int" Nullable="false" />
+    <Property Name="Valor" Type="decimal" Nullable="false" Precision="17" Scale="2" />
+    <Property Name="Ticket" Type="uniqueidentifier" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Contatos">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nome" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="Email" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="Mensagem" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Data" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Indicacoes">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Token" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="Cadastrou" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PalpitesCampeoes">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Data" Type="datetime" Nullable="false" />
+    <Property Name="Palpite_Campeao" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Palpite_TerceiroCampeao" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Palpite_ViceCampeao" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Palpite_QuartoCampeao" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="JogadorId" Type="int" Nullable="false" />
+    <Property Name="CampeonatoId" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="CampeonatoEtapa">
+    <End Role="Campeonato" Type="BolaoBafana.Store.Campeonatos" Multiplicity="1" />
+    <End Role="Etapa" Type="BolaoBafana.Store.Etapas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Campeonato">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Etapa">
+        <PropertyRef Name="CampeonatoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="EtapaJogo">
+    <End Role="Etapa" Type="BolaoBafana.Store.Etapas" Multiplicity="1" />
+    <End Role="Jogo" Type="BolaoBafana.Store.Jogos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Etapa">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Jogo">
+        <PropertyRef Name="EtapaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="JogoTimeDaCasa">
+    <End Role="Jogo" Type="BolaoBafana.Store.Jogos" Multiplicity="*" />
+    <End Role="Time" Type="BolaoBafana.Store.Times" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Time">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Jogo">
+        <PropertyRef Name="TimeDaCasa_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="JogoTimeVisitante">
+    <End Role="Jogo" Type="BolaoBafana.Store.Jogos" Multiplicity="*" />
+    <End Role="Time" Type="BolaoBafana.Store.Times" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Time">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Jogo">
+        <PropertyRef Name="TimeVisitante_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="JogoAposta">
+    <End Role="Jogo" Type="BolaoBafana.Store.Jogos" Multiplicity="1" />
+    <End Role="Aposta" Type="BolaoBafana.Store.Apostas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Jogo">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Aposta">
+        <PropertyRef Name="JogoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="JogadorAposta">
+    <End Role="Jogador" Type="BolaoBafana.Store.Jogadores" Multiplicity="1" />
+    <End Role="Aposta" Type="BolaoBafana.Store.Apostas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Jogador">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Aposta">
+        <PropertyRef Name="JogadorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="JogadorBilhete">
+    <End Role="Jogador" Type="BolaoBafana.Store.Jogadores" Multiplicity="1" />
+    <End Role="Bilhete" Type="BolaoBafana.Store.Bilhetes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Jogador">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Bilhete">
+        <PropertyRef Name="JogadorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CampeonatoBilhete">
+    <End Role="Campeonato" Type="BolaoBafana.Store.Campeonatos" Multiplicity="1" />
+    <End Role="Bilhete" Type="BolaoBafana.Store.Bilhetes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Campeonato">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Bilhete">
+        <PropertyRef Name="CampeonatoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="JogadorPalpiteCampeao">
+    <End Role="Jogador" Type="BolaoBafana.Store.Jogadores" Multiplicity="1" />
+    <End Role="PalpiteCampeao" Type="BolaoBafana.Store.PalpitesCampeoes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Jogador">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PalpiteCampeao">
+        <PropertyRef Name="JogadorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CampeonatoPalpiteCampeao">
+    <End Role="Campeonato" Type="BolaoBafana.Store.Campeonatos" Multiplicity="1" />
+    <End Role="PalpiteCampeao" Type="BolaoBafana.Store.PalpitesCampeoes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Campeonato">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PalpiteCampeao">
+        <PropertyRef Name="CampeonatoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2008/09/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="BolaoBafana" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
+        <EntityContainer Name="BolaoBafanaContainer" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Campeonatos" EntityType="BolaoBafana.Campeonato" />
+          <EntitySet Name="Etapas" EntityType="BolaoBafana.Etapa" />
+          <EntitySet Name="Jogos" EntityType="BolaoBafana.Jogo" />
+          <EntitySet Name="Apostas" EntityType="BolaoBafana.Aposta" />
+          <EntitySet Name="Jogadores" EntityType="BolaoBafana.Jogador" />
+          <EntitySet Name="Times" EntityType="BolaoBafana.Time" />
+          <AssociationSet Name="CampeonatoEtapa" Association="BolaoBafana.CampeonatoEtapa">
+            <End Role="Campeonato" EntitySet="Campeonatos" />
+            <End Role="Etapa" EntitySet="Etapas" />
+          </AssociationSet>
+          <AssociationSet Name="EtapaJogo" Association="BolaoBafana.EtapaJogo">
+            <End Role="Etapa" EntitySet="Etapas" />
+            <End Role="Jogo" EntitySet="Jogos" />
+          </AssociationSet>
+          <AssociationSet Name="JogoTimeDaCasa" Association="BolaoBafana.JogoTimeDaCasa">
+            <End Role="Jogo" EntitySet="Jogos" />
+            <End Role="Time" EntitySet="Times" />
+          </AssociationSet>
+          <AssociationSet Name="JogoTimeVisitante" Association="BolaoBafana.JogoTimeVisitante">
+            <End EntitySet="Jogos" Role="Jogo" />
+            <End EntitySet="Times" Role="Time" />
+          </AssociationSet>
+          <AssociationSet Name="JogoAposta" Association="BolaoBafana.JogoAposta">
+            <End Role="Jogo" EntitySet="Jogos" />
+            <End Role="Aposta" EntitySet="Apostas" />
+          </AssociationSet>
+          <AssociationSet Name="JogadorAposta" Association="BolaoBafana.JogadorAposta">
+            <End Role="Jogador" EntitySet="Jogadores" />
+            <End Role="Aposta" EntitySet="Apostas" />
+          </AssociationSet>
+          <EntitySet Name="Bilhetes" EntityType="BolaoBafana.Bilhete" />
+          <AssociationSet Name="JogadorBilhete" Association="BolaoBafana.JogadorBilhete">
+            <End Role="Jogador" EntitySet="Jogadores" />
+            <End Role="Bilhete" EntitySet="Bilhetes" />
+          </AssociationSet>
+          <AssociationSet Name="CampeonatoBilhete" Association="BolaoBafana.CampeonatoBilhete">
+            <End Role="Campeonato" EntitySet="Campeonatos" />
+            <End Role="Bilhete" EntitySet="Bilhetes" />
+          </AssociationSet>
+          <EntitySet Name="Contatos" EntityType="BolaoBafana.Contato" />
+          <EntitySet Name="Indicacoes" EntityType="BolaoBafana.Indicacao" />
+          <EntitySet Name="PalpitesCampeoes" EntityType="BolaoBafana.PalpiteCampeao" />
+          <AssociationSet Name="JogadorPalpiteCampeao" Association="BolaoBafana.JogadorPalpiteCampeao">
+            <End Role="Jogador" EntitySet="Jogadores" />
+            <End Role="PalpiteCampeao" EntitySet="PalpitesCampeoes" />
+          </AssociationSet>
+          <AssociationSet Name="CampeonatoPalpiteCampeao" Association="BolaoBafana.CampeonatoPalpiteCampeao">
+            <End Role="Campeonato" EntitySet="Campeonatos" />
+            <End Role="PalpiteCampeao" EntitySet="PalpitesCampeoes" />
+          </AssociationSet>
+          </EntityContainer>
+        <EntityType Name="Campeonato">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Nome" Nullable="false" FixedLength="false" MaxLength="50" />
+          <Property Type="DateTime" Name="Inicio" Nullable="false" />
+          <NavigationProperty Name="Etapas" Relationship="BolaoBafana.CampeonatoEtapa" FromRole="Campeonato" ToRole="Etapa" cg:SetterAccess="Public" />
+          <Property Type="DateTime" Name="Termino" Nullable="false" />
+          <Property Name="Campeoes" Type="BolaoBafana.Campeoes" Nullable="false" />
+          <Property Type="Boolean" Name="HabilitarBilhetes" Nullable="false" />
+          <NavigationProperty Name="PalpitesCampeoes" Relationship="BolaoBafana.CampeonatoPalpiteCampeao" FromRole="Campeonato" ToRole="PalpiteCampeao" />
+        </EntityType>
+        <EntityType Name="Etapa">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Nome" Nullable="false" FixedLength="false" MaxLength="50" />
+          <NavigationProperty Name="Campeonato" Relationship="BolaoBafana.CampeonatoEtapa" FromRole="Etapa" ToRole="Campeonato" />
+          <Property Type="Int32" Name="CampeonatoId" Nullable="false" />
+          <NavigationProperty Name="Jogos" Relationship="BolaoBafana.EtapaJogo" FromRole="Etapa" ToRole="Jogo" cg:SetterAccess="Public" />
+          <Property Type="Int32" Name="Peso" Nullable="false" />
+          <Property Type="String" Name="Tipo" Nullable="false" FixedLength="false" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="Jogo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="DateTime" Name="Data" Nullable="false" />
+          <Property Name="Resultado" Type="BolaoBafana.Placar" Nullable="false" />
+          <NavigationProperty Name="Etapa" Relationship="BolaoBafana.EtapaJogo" FromRole="Jogo" ToRole="Etapa" />
+          <Property Type="Int32" Name="EtapaId" Nullable="false" />
+          <NavigationProperty Name="TimeDaCasa" Relationship="BolaoBafana.JogoTimeDaCasa" FromRole="Jogo" ToRole="Time" />
+          <NavigationProperty Name="TimeVisitante" Relationship="BolaoBafana.JogoTimeVisitante" FromRole="Jogo" ToRole="Time" />
+          <NavigationProperty Name="Apostas" Relationship="BolaoBafana.JogoAposta" FromRole="Jogo" ToRole="Aposta" cg:SetterAccess="Public" />
+          <Property Type="String" Name="EmbedVideo" Nullable="false" FixedLength="false" MaxLength="Max" />
+        </EntityType>
+        <EntityType Name="Aposta">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Palpite" Type="BolaoBafana.Placar" Nullable="false" />
+          <NavigationProperty Name="Jogo" Relationship="BolaoBafana.JogoAposta" FromRole="Aposta" ToRole="Jogo" />
+          <Property Type="Int32" Name="JogoId" Nullable="false" />
+          <NavigationProperty Name="Jogador" Relationship="BolaoBafana.JogadorAposta" FromRole="Aposta" ToRole="Jogador" />
+          <Property Type="Int32" Name="JogadorId" Nullable="false" />
+          <Property Type="DateTime" Name="Data" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Jogador">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="NomeCompleto" Nullable="false" FixedLength="false" MaxLength="100" />
+          <Property Type="String" Name="Email" Nullable="false" FixedLength="false" MaxLength="100" />
+          <Property Type="String" Name="Nickname" Nullable="false" FixedLength="false" MaxLength="50" />
+          <Property Type="String" Name="Senha" Nullable="false" FixedLength="false" MaxLength="15" />
+          <NavigationProperty Name="Apostas" Relationship="BolaoBafana.JogadorAposta" FromRole="Jogador" ToRole="Aposta" cg:SetterAccess="Public" />
+          <Property Type="DateTime" Name="CadastradoEm" Nullable="false" />
+          <NavigationProperty Name="PalpitesCampeoes" Relationship="BolaoBafana.JogadorPalpiteCampeao" FromRole="Jogador" ToRole="PalpiteCampeao" />
+        </EntityType>
+        <EntityType Name="Time">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Nome" Nullable="false" FixedLength="false" MaxLength="50" />
+          <Property Type="String" Name="Bandeira" Nullable="false" FixedLength="false" MaxLength="100" />
+        </EntityType>
+        <ComplexType Name="Placar" >
+          <Property Type="Int32" Name="TimeDaCasa" Nullable="true" />
+          <Property Type="Int32" Name="TimeVisitante" Nullable="true" />
+          <Property Type="Boolean" Name="TimeDaCasaPenalti" Nullable="true" />
+          <Property Type="Boolean" Name="TimeVisitantePenalti" Nullable="true" />
+        </ComplexType>
+        <Association Name="CampeonatoEtapa">
+          <End Type="BolaoBafana.Campeonato" Role="Campeonato" Multiplicity="1" />
+          <End Type="BolaoBafana.Etapa" Role="Etapa" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Campeonato">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Etapa">
+              <PropertyRef Name="CampeonatoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="EtapaJogo">
+          <End Type="BolaoBafana.Etapa" Role="Etapa" Multiplicity="1" />
+          <End Type="BolaoBafana.Jogo" Role="Jogo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Etapa">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Jogo">
+              <PropertyRef Name="EtapaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="JogoTimeDaCasa">
+          <End Type="BolaoBafana.Jogo" Role="Jogo" Multiplicity="*" />
+          <End Type="BolaoBafana.Time" Role="Time" Multiplicity="1" />
+        </Association>
+        <Association Name="JogoTimeVisitante">
+          <End Type="BolaoBafana.Jogo" Multiplicity="*" Role="Jogo" />
+          <End Type="BolaoBafana.Time" Multiplicity="1" Role="Time" />
+        </Association>
+        <Association Name="JogoAposta">
+          <End Type="BolaoBafana.Jogo" Role="Jogo" Multiplicity="1" />
+          <End Type="BolaoBafana.Aposta" Role="Aposta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Jogo">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Aposta">
+              <PropertyRef Name="JogoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="JogadorAposta">
+          <End Type="BolaoBafana.Jogador" Role="Jogador" Multiplicity="1" />
+          <End Type="BolaoBafana.Aposta" Role="Aposta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Jogador">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Aposta">
+              <PropertyRef Name="JogadorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Bilhete">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="DateTime" Name="ComprouEm" Nullable="false" />
+          <Property Type="String" Name="Status" Nullable="false" FixedLength="false" MaxLength="50" />
+          <NavigationProperty Name="Jogador" Relationship="BolaoBafana.JogadorBilhete" FromRole="Bilhete" ToRole="Jogador" />
+          <Property Type="Int32" Name="JogadorId" Nullable="false" />
+          <NavigationProperty Name="Campeonato" Relationship="BolaoBafana.CampeonatoBilhete" FromRole="Bilhete" ToRole="Campeonato" />
+          <Property Type="Int32" Name="CampeonatoId" Nullable="false" />
+          <Property Type="Decimal" Name="Valor" Nullable="false" Precision="17" Scale="2" />
+          <Property Type="Guid" Name="Ticket" Nullable="false" />
+        </EntityType>
+        <Association Name="JogadorBilhete">
+          <End Type="BolaoBafana.Jogador" Role="Jogador" Multiplicity="1" />
+          <End Type="BolaoBafana.Bilhete" Role="Bilhete" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Jogador">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Bilhete">
+              <PropertyRef Name="JogadorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CampeonatoBilhete">
+          <End Type="BolaoBafana.Campeonato" Role="Campeonato" Multiplicity="1" />
+          <End Type="BolaoBafana.Bilhete" Role="Bilhete" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Campeonato">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Bilhete">
+              <PropertyRef Name="CampeonatoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Contato">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Nome" Nullable="false" FixedLength="false" MaxLength="100" />
+          <Property Type="String" Name="Email" Nullable="false" MaxLength="100" FixedLength="false" />
+          <Property Type="String" Name="Mensagem" Nullable="false" FixedLength="false" MaxLength="Max" />
+          <Property Type="DateTime" Name="Data" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Indicacao">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Guid" Name="Token" Nullable="false" />
+          <Property Type="String" Name="Email" Nullable="false" FixedLength="false" MaxLength="100" />
+          <Property Type="Boolean" Name="Cadastrou" Nullable="false" />
+        </EntityType>
+        <ComplexType Name="Campeoes" >
+          <Property Type="String" Name="Campeao" Nullable="false" FixedLength="false" MaxLength="50" />
+          <Property Type="String" Name="TerceiroCampeao" Nullable="false" MaxLength="50" FixedLength="false" />
+          <Property Type="String" Name="ViceCampeao" Nullable="false" MaxLength="50" FixedLength="false" />
+          <Property Type="String" Name="QuartoCampeao" Nullable="false" MaxLength="50" FixedLength="false" />
+        </ComplexType>
+        <EntityType Name="PalpiteCampeao">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="DateTime" Name="Data" Nullable="false" />
+          <Property Name="Palpite" Type="BolaoBafana.Campeoes" Nullable="false" />
+          <NavigationProperty Name="Jogador" Relationship="BolaoBafana.JogadorPalpiteCampeao" FromRole="PalpiteCampeao" ToRole="Jogador" />
+          <Property Type="Int32" Name="JogadorId" Nullable="false" />
+          <NavigationProperty Name="Campeonato" Relationship="BolaoBafana.CampeonatoPalpiteCampeao" FromRole="PalpiteCampeao" ToRole="Campeonato" />
+          <Property Type="Int32" Name="CampeonatoId" Nullable="false" />
+        </EntityType>
+        <Association Name="JogadorPalpiteCampeao">
+          <End Type="BolaoBafana.Jogador" Role="Jogador" Multiplicity="1" />
+          <End Type="BolaoBafana.PalpiteCampeao" Role="PalpiteCampeao" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Jogador">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PalpiteCampeao">
+              <PropertyRef Name="JogadorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CampeonatoPalpiteCampeao">
+          <End Type="BolaoBafana.Campeonato" Role="Campeonato" Multiplicity="1" />
+          <End Type="BolaoBafana.PalpiteCampeao" Role="PalpiteCampeao" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Campeonato">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PalpiteCampeao">
+              <PropertyRef Name="CampeonatoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="BolaoBafanaStoreContainer" CdmEntityContainer="BolaoBafanaContainer">
+    <EntitySetMapping Name="Campeonatos">
+      <EntityTypeMapping TypeName="IsTypeOf(BolaoBafana.Campeonato)">
+        <MappingFragment StoreEntitySet="Campeonatos">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Nome" ColumnName="Nome" />
+          <ScalarProperty Name="Inicio" ColumnName="Inicio" />
+          <ScalarProperty Name="Termino" ColumnName="Termino" />
+          <ComplexProperty Name="Campeoes" TypeName="BolaoBafana.Campeoes">
+            <ScalarProperty Name="Campeao" ColumnName="Campeoes_Campeao" />
+            <ScalarProperty Name="TerceiroCampeao" ColumnName="Campeoes_TerceiroCampeao" />
+            <ScalarProperty Name="ViceCampeao" ColumnName="Campeoes_ViceCampeao" />
+            <ScalarProperty Name="QuartoCampeao" ColumnName="Campeoes_QuartoCampeao" />
+          </ComplexProperty>
+          <ScalarProperty Name="HabilitarBilhetes" ColumnName="HabilitarBilhetes" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Etapas">
+      <EntityTypeMapping TypeName="IsTypeOf(BolaoBafana.Etapa)">
+        <MappingFragment StoreEntitySet="Etapas">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Nome" ColumnName="Nome" />
+          <ScalarProperty Name="CampeonatoId" ColumnName="CampeonatoId" />
+          <ScalarProperty Name="Peso" ColumnName="Peso" />
+          <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Jogos">
+      <EntityTypeMapping TypeName="IsTypeOf(BolaoBafana.Jogo)">
+        <MappingFragment StoreEntitySet="Jogos">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Data" ColumnName="Data" />
+          <ComplexProperty Name="Resultado" TypeName="BolaoBafana.Placar">
+            <ScalarProperty Name="TimeDaCasa" ColumnName="Resultado_TimeDaCasa" />
+            <ScalarProperty Name="TimeVisitante" ColumnName="Resultado_TimeVisitante" />
+            <ScalarProperty Name="TimeDaCasaPenalti" ColumnName="Resultado_TimeDaCasaPenalti" />
+            <ScalarProperty Name="TimeVisitantePenalti" ColumnName="Resultado_TimeVisitantePenalti" />
+          </ComplexProperty>
+          <ScalarProperty Name="EtapaId" ColumnName="EtapaId" />
+          <ScalarProperty Name="EmbedVideo" ColumnName="EmbedVideo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Apostas">
+      <EntityTypeMapping TypeName="IsTypeOf(BolaoBafana.Aposta)">
+        <MappingFragment StoreEntitySet="Apostas">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ComplexProperty Name="Palpite" TypeName="BolaoBafana.Placar">
+            <ScalarProperty Name="TimeDaCasa" ColumnName="Palpite_TimeDaCasa" />
+            <ScalarProperty Name="TimeVisitante" ColumnName="Palpite_TimeVisitante" />
+            <ScalarProperty Name="TimeDaCasaPenalti" ColumnName="Palpite_TimeDaCasaPenalti" />
+            <ScalarProperty Name="TimeVisitantePenalti" ColumnName="Palpite_TimeVisitantePenalti" />
+          </ComplexProperty>
+          <ScalarProperty Name="JogoId" ColumnName="JogoId" />
+          <ScalarProperty Name="JogadorId" ColumnName="JogadorId" />
+          <ScalarProperty Name="Data" ColumnName="Data" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Jogadores">
+      <EntityTypeMapping TypeName="IsTypeOf(BolaoBafana.Jogador)">
+        <MappingFragment StoreEntitySet="Jogadores">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="NomeCompleto" ColumnName="NomeCompleto" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Nickname" ColumnName="Nickname" />
+          <ScalarProperty Name="Senha" ColumnName="Senha" />
+          <ScalarProperty Name="CadastradoEm" ColumnName="CadastradoEm" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Times">
+      <EntityTypeMapping TypeName="IsTypeOf(BolaoBafana.Time)">
+        <MappingFragment StoreEntitySet="Times">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Nome" ColumnName="Nome" />
+          <ScalarProperty Name="Bandeira" ColumnName="Bandeira" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Bilhetes">
+      <EntityTypeMapping TypeName="IsTypeOf(BolaoBafana.Bilhete)">
+        <MappingFragment StoreEntitySet="Bilhetes">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ComprouEm" ColumnName="ComprouEm" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="JogadorId" ColumnName="JogadorId" />
+          <ScalarProperty Name="CampeonatoId" ColumnName="CampeonatoId" />
+          <ScalarProperty Name="Valor" ColumnName="Valor" />
+          <ScalarProperty Name="Ticket" ColumnName="Ticket" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Contatos">
+      <EntityTypeMapping TypeName="IsTypeOf(BolaoBafana.Contato)">
+        <MappingFragment StoreEntitySet="Contatos">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Nome" ColumnName="Nome" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Mensagem" ColumnName="Mensagem" />
+          <ScalarProperty Name="Data" ColumnName="Data" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Indicacoes">
+      <EntityTypeMapping TypeName="IsTypeOf(BolaoBafana.Indicacao)">
+        <MappingFragment StoreEntitySet="Indicacoes">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Token" ColumnName="Token" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Cadastrou" ColumnName="Cadastrou" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PalpitesCampeoes">
+      <EntityTypeMapping TypeName="IsTypeOf(BolaoBafana.PalpiteCampeao)">
+        <MappingFragment StoreEntitySet="PalpitesCampeoes">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Data" ColumnName="Data" />
+          <ComplexProperty Name="Palpite" TypeName="BolaoBafana.Campeoes">
+            <ScalarProperty Name="Campeao" ColumnName="Palpite_Campeao" />
+            <ScalarProperty Name="TerceiroCampeao" ColumnName="Palpite_TerceiroCampeao" />
+            <ScalarProperty Name="ViceCampeao" ColumnName="Palpite_ViceCampeao" />
+            <ScalarProperty Name="QuartoCampeao" ColumnName="Palpite_QuartoCampeao" />
+          </ComplexProperty>
+          <ScalarProperty Name="JogadorId" ColumnName="JogadorId" />
+          <ScalarProperty Name="CampeonatoId" ColumnName="CampeonatoId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="JogoTimeDaCasa" TypeName="BolaoBafana.JogoTimeDaCasa" StoreEntitySet="Jogos">
+      <EndProperty Name="Time">
+        <ScalarProperty Name="Id" ColumnName="TimeDaCasa_Id" />
+      </EndProperty>
+      <EndProperty Name="Jogo">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="JogoTimeVisitante" TypeName="BolaoBafana.JogoTimeVisitante" StoreEntitySet="Jogos">
+      <EndProperty Name="Time">
+        <ScalarProperty Name="Id" ColumnName="TimeVisitante_Id" />
+      </EndProperty>
+      <EndProperty Name="Jogo">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+        <DesignerProperty Name="DatabaseGenerationWorkflow" Value="$(VSEFTools)\DBGen\Generate Migration T-SQL And Deploy.xaml" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram Name="BolaoBafana" >
+        <EntityTypeShape EntityType="BolaoBafana.Campeonato" Width="1.5" PointX="2.75" PointY="0.625" Height="2.364889322916667" />
+        <EntityTypeShape EntityType="BolaoBafana.Etapa" Width="1.5" PointX="5.125" PointY="0.625" Height="2.3648893229166661" />
+        <EntityTypeShape EntityType="BolaoBafana.Jogo" Width="1.5" PointX="7.625" PointY="0.625" Height="2.7494921874999991" />
+        <EntityTypeShape EntityType="BolaoBafana.Aposta" Width="1.5" PointX="7.625" PointY="3.75" Height="2.3648893229166656" />
+        <EntityTypeShape EntityType="BolaoBafana.Jogador" Width="1.5" PointX="5.125" PointY="7" Height="2.3648893229166656" />
+        <EntityTypeShape EntityType="BolaoBafana.Time" Width="1.5" PointX="10.25" PointY="0.625" Height="1.59568359375" />
+        <AssociationConnector Association="BolaoBafana.CampeonatoEtapa">
+          <ConnectorPoint PointX="4.25" PointY="1.8074446614583328" />
+          <ConnectorPoint PointX="5.125" PointY="1.8074446614583328" />
+        </AssociationConnector>
+        <AssociationConnector Association="BolaoBafana.EtapaJogo">
+          <ConnectorPoint PointX="6.625" PointY="1.8074446614583328" />
+          <ConnectorPoint PointX="7.625" PointY="1.8074446614583328" />
+        </AssociationConnector>
+        <AssociationConnector Association="BolaoBafana.JogoTimeDaCasa">
+          <ConnectorPoint PointX="9.125" PointY="1.6535522460937497" />
+          <ConnectorPoint PointX="10.25" PointY="1.6535522460937497" />
+        </AssociationConnector>
+        <AssociationConnector Association="BolaoBafana.JogoTimeVisitante">
+          <ConnectorPoint PointX="9.125" PointY="1.0767761230468749" />
+          <ConnectorPoint PointX="10.25" PointY="1.0767761230468749" />
+        </AssociationConnector>
+        <AssociationConnector Association="BolaoBafana.JogoAposta">
+          <ConnectorPoint PointX="8.375" PointY="3.3744921874999991" />
+          <ConnectorPoint PointX="8.375" PointY="3.75" />
+        </AssociationConnector>
+        <AssociationConnector Association="BolaoBafana.JogadorAposta">
+          <ConnectorPoint PointX="6.625" PointY="8.1824446614583337" />
+          <ConnectorPoint PointX="8.375" PointY="8.1824446614583337" />
+          <ConnectorPoint PointX="8.375" PointY="6.1148893229166656" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="BolaoBafana.Bilhete" Width="1.5" PointX="5.125" PointY="3.625" Height="2.7494921874999996" />
+        <AssociationConnector Association="BolaoBafana.JogadorBilhete">
+          <ConnectorPoint PointX="5.875" PointY="7" />
+          <ConnectorPoint PointX="5.875" PointY="6.3744921875" />
+        </AssociationConnector>
+        <AssociationConnector Association="BolaoBafana.CampeonatoBilhete">
+          <ConnectorPoint PointX="3.74560859375" PointY="3.1821907552083331" />
+          <ConnectorPoint PointX="3.74560859375" PointY="4.99974609375" />
+          <ConnectorPoint PointX="5.125" PointY="4.99974609375" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="BolaoBafana.Contato" Width="1.5" PointX="10.25" PointY="3" Height="1.9802864583333335" />
+        <EntityTypeShape EntityType="BolaoBafana.Indicacao" Width="1.5" PointX="10.25" PointY="5.5" Height="1.7879850260416657" />
+        <EntityTypeShape EntityType="BolaoBafana.PalpiteCampeao" Width="1.5" PointX="2.25" PointY="7" Height="1.5956835937499996" />
+        <AssociationConnector Association="BolaoBafana.JogadorPalpiteCampeao">
+          <ConnectorPoint PointX="5.125" PointY="7.9901432291666659" />
+          <ConnectorPoint PointX="3.75" PointY="7.9901432291666659" />
+        </AssociationConnector>
+        <AssociationConnector Association="BolaoBafana.CampeonatoPalpiteCampeao">
+          <ConnectorPoint PointX="3.15234375" PointY="3.1821907552083331" />
+          <ConnectorPoint PointX="3.15234375" PointY="7" />
+        </AssociationConnector>
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

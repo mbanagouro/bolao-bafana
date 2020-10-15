@@ -1,0 +1,17 @@
+﻿@model BolaoBafana.Dominio.Ranking
+
+<div class="placar">
+	<a href="#" title="Ranking" class="ranking">Ranking</a>
+					
+	<ul class="ranking">
+        @foreach (var item in Model.Colocacao) {
+        <li><span class="nome">@item.Nickname</span><span>@item.Pontuacao</span></li>
+        }
+	</ul>
+					
+	<ul class="premio">
+		<li><span>1º</span>@String.Format("{0:c}", Model.Premiacao.PrimeiroLugar)</li>
+		<li><span>2º</span>@String.Format("{0:c}", Model.Premiacao.SegundoLugar)</li>
+		<li><span>3º</span>@String.Format("{0:c}", Model.Premiacao.TerceiroLugar)</li>
+	</ul>
+</div>

@@ -1,0 +1,45 @@
+﻿@model BolaoBafana.Dominio.Colocacao
+@using BolaoBafana.Web.Code
+
+<ul class="userInfo round">
+    <li class="nome">E ai @UserHelper.Nome, blz?</li>
+	@if (Model != null) {
+    <li class="pontuacao">Você tem @Model.Pontuacao pontos e está na @(Model.Posicao)º posição.</li>
+    }
+    
+    <span class="control">
+		<li class="control">
+			<a href="#" class="mudarSenha">Mudar senha</a>						
+			<div class="mudarSenha round">
+				<ul>
+					<form id="form-mudar-senha" action="#" method="post" >
+						<li>
+							<label>Senha atual</label>
+							<input type="password" class="password round" name="SenhaAtual" maxlength="15" />
+						</li>
+									
+						<li>
+							<label>Nova senha</label>
+							<input type="password" id="senha-nova" class="password round" name="SenhaNova" maxlength="15" />
+						</li>
+									
+						<li>
+							<label>Confirme nova senha</label>
+							<input type="password" class="password round" name="ConfirmaSenha" maxlength="15" />
+						</li>
+									
+						<li class="controle">
+							<input type="submit" value="Trocar senha" class="trocar" />
+							<input type="reset" value="Cancelar" class="cancelar" />
+						</li>
+									
+						<li class="msgRetorno">
+							<span class="retorno"></span>
+						</li>
+					</form>
+				</ul>
+			</div>
+		</li>
+		<li class="control"><a href="@Url.Action("Logout", "Login")">Sair</a></li>
+	</span>
+</ul>
